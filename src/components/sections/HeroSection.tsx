@@ -12,7 +12,7 @@ export function HeroSection() {
             {/* Background image — main photo */}
             <div className="absolute inset-0">
                 <Image
-                    src="/assets/DSC05363.JPG.jpeg"
+                    src="/assets/top-front-view.jpeg"
                     alt="Loga Guest House exterior — Jaffna heritage property"
                     fill
                     priority

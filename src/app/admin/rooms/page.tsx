@@ -28,7 +28,7 @@ export default async function AdminRoomsPage() {
 
   return (
     <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1
             className="text-2xl font-bold text-white"
@@ -39,6 +39,20 @@ export default async function AdminRoomsPage() {
           <p className="text-sm text-[hsl(43_35%_50%)] mt-1">
             {rows.length} room{rows.length !== 1 ? "s" : ""} configured
           </p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            type="button"
+            className="text-[10px] font-semibold uppercase tracking-wide px-4 py-2 rounded-lg border border-[hsl(43_35%_80%/0.2)] text-[hsl(43_35%_80%)] hover:bg-[hsl(43_35%_80%/0.08)] transition-colors"
+          >
+            Sync Metadata
+          </button>
+          <button
+            type="button"
+            className="text-[10px] font-semibold uppercase tracking-wide px-4 py-2 rounded-lg bg-[hsl(42_85%_58%)] text-[hsl(220_25%_8%)] hover:bg-[hsl(42_85%_65%)] transition-colors shadow-sm"
+          >
+            + Add New Room
+          </button>
         </div>
       </div>
 
@@ -116,20 +130,25 @@ export default async function AdminRoomsPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[hsl(43_35%_40%)] font-mono text-[10px]">
-                  {room.slug}
+              <div className="flex items-center justify-between pt-1 mt-2 border-t" style={{ borderColor: "hsl(42 85% 58% / 0.08)" }}>
+                <span className="text-[hsl(43_35%_40%)] font-mono text-[10px] pt-1">
+                  ID: {room.id?.split("-")[0]?.toUpperCase() ?? room.slug}
                 </span>
-                <a
-                  href={`/rooms/${room.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[10px] font-medium hover:underline"
-                  style={{ color: "hsl(42 85% 58%)" }}
-                  aria-label={`View ${room.name} on public site`}
-                >
-                  View public →
-                </a>
+                <div className="flex items-center gap-3 pt-1">
+                  <a
+                    href={`/rooms/${room.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-medium hover:underline"
+                    style={{ color: "hsl(42 85% 58%)" }}
+                    aria-label={`View ${room.name} on public site`}
+                  >
+                    View public →
+                  </a>
+                  <button className="text-[10px] font-medium px-3 py-1.5 rounded bg-[hsl(43_35%_80%/0.08)] hover:bg-[hsl(43_35%_80%/0.15)] text-white transition-colors border border-[hsl(43_35%_80%/0.1)]">
+                    Edit Room
+                  </button>
+                </div>
               </div>
             </div>
           </div>

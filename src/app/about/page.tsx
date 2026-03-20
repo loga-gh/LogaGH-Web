@@ -178,7 +178,7 @@ export default function AboutPage() {
                             <div className="relative h-[520px]">
                                 <div className="absolute top-0 left-0 w-[68%] h-[62%] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src="/assets/exterior.jpg"
+                                        src="/assets/front-view.jpeg"
                                         alt="Loga Guest House exterior showing Dutch-colonial architecture"
                                         fill
                                         className="object-cover"
@@ -187,7 +187,7 @@ export default function AboutPage() {
                                 </div>
                                 <div className="absolute bottom-0 right-0 w-[58%] h-[55%] rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src="/assets/dining.jpg"
+                                        src="/assets/dinning.png"
                                         alt="Traditional Jaffna breakfast spread at Loga Guest House"
                                         fill
                                         className="object-cover"
@@ -358,7 +358,7 @@ export default function AboutPage() {
                             </div>
                             <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src="/assets/pool.jpg"
+                                    src="/assets/sideview.jpeg"
                                     alt="Serene outdoor pool surrounded by tropical palms at Loga Guest House"
                                     fill
                                     className="object-cover"

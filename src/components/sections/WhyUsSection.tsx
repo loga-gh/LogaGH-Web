@@ -70,7 +70,7 @@ export function WhyUsSection() {
                             style={{ aspectRatio: "4/5" }}
                         >
                             <Image
-                                src="/assets/DSC05370.JPG.jpeg"
+                                src="/assets/Enterance.jpeg"
                                 alt="Loga Guest House interior — heritage carved teak and Tamil decor"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -84,7 +84,7 @@ export function WhyUsSection() {
                             style={{ aspectRatio: "1" }}
                         >
                             <Image
-                                src="/assets/DSC05372.JPG.jpeg"
+                                src="/assets/dinning.png"
                                 alt="Loga Guest House courtyard"
                                 fill
                                 sizes="20vw"

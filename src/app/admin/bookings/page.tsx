@@ -42,16 +42,32 @@ export default async function AdminBookingsPage() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
-        <h1
-          className="text-2xl font-bold text-white"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          Bookings
-        </h1>
-        <p className="text-sm text-[hsl(43_35%_50%)] mt-1">
-          {rows.length} total booking{rows.length !== 1 ? "s" : ""}
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1
+            className="text-2xl font-bold text-white"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Bookings
+          </h1>
+          <p className="text-sm text-[hsl(43_35%_50%)] mt-1">
+            {rows.length} total booking{rows.length !== 1 ? "s" : ""}
+          </p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            type="button"
+            className="text-[10px] font-semibold uppercase tracking-wide px-4 py-2 rounded-lg border border-[hsl(43_35%_80%/0.2)] text-[hsl(43_35%_80%)] hover:bg-[hsl(43_35%_80%/0.08)] transition-colors"
+          >
+            Export CSV
+          </button>
+          <button
+            type="button"
+            className="text-[10px] font-semibold uppercase tracking-wide px-4 py-2 rounded-lg bg-[hsl(42_85%_58%)] text-[hsl(220_25%_8%)] hover:bg-[hsl(42_85%_65%)] transition-colors shadow-sm"
+          >
+            + Add Booking
+          </button>
+        </div>
       </div>
 
       <div
@@ -65,7 +81,7 @@ export default async function AdminBookingsPage() {
           <table className="w-full text-sm" aria-label="All bookings">
             <thead>
               <tr style={{ background: "hsl(220 25% 9%)" }}>
-                {["#", "Guest", "Room", "Check-in", "Check-out", "Guests", "Amount", "Status", "Payment"].map((h) => (
+                {["Booking ID", "Guest", "Room", "Check-in", "Check-out", "Guests", "Amount", "Status", "Payment"].map((h) => (
                   <th
                     key={h}
                     className="text-left px-4 py-3 text-[10px] font-semibold tracking-widest uppercase whitespace-nowrap"
@@ -92,8 +108,8 @@ export default async function AdminBookingsPage() {
                     key={b.id}
                     className="hover:bg-[hsl(43_35%_80%/0.03)] transition-colors"
                   >
-                    <td className="px-4 py-4 text-[hsl(43_35%_40%)] text-xs font-mono">
-                      {rows.length - idx}
+                    <td className="px-4 py-4 text-[hsl(43_35%_65%)] text-xs font-mono uppercase">
+                      {b.id.split("-")[0]}
                     </td>
                     <td className="px-4 py-4">
                       <p className="text-white font-medium text-sm">{b.guest_name}</p>

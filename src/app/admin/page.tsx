@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { createServerClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import { formatDisplayDate } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Dashboard" };
 
@@ -116,16 +117,32 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
-        <h1
-          className="text-2xl font-bold text-white"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          Dashboard
-        </h1>
-        <p className="text-sm text-[hsl(43_35%_50%)] mt-1">
-          Welcome back. Here&apos;s what&apos;s happening at Loga.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1
+            className="text-2xl font-bold text-white"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Dashboard
+          </h1>
+          <p className="text-sm text-[hsl(43_35%_50%)] mt-1">
+            Welcome back. Here&apos;s what&apos;s happening at Loga.
+          </p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <Link
+            href="/admin/bookings"
+            className="text-xs font-semibold px-4 py-2 rounded-lg border border-[hsl(42_85%_58%/0.5)] text-[hsl(42_85%_58%)] hover:bg-[hsl(42_85%_58%/0.1)] transition-colors"
+          >
+            Manage Bookings
+          </Link>
+          <Link
+            href="/admin/rooms"
+            className="text-xs font-semibold px-4 py-2 rounded-lg bg-[hsl(42_85%_58%)] text-[hsl(220_25%_8%)] hover:bg-[hsl(42_85%_65%)] transition-colors shadow-[0_0_15px_hsl(42_85%_58%/0.2)]"
+          >
+            View Rooms
+          </Link>
+        </div>
       </div>
 
       {/* Stats */}
@@ -178,7 +195,7 @@ export default async function AdminDashboardPage() {
           <table className="w-full text-sm" aria-label="Recent bookings">
             <thead>
               <tr style={{ background: "hsl(220 25% 10%)" }}>
-                {["Guest", "Room", "Check-in", "Check-out", "Amount", "Status"].map((h) => (
+                {["Booking ID", "Guest", "Room", "Check-in", "Check-out", "Amount", "Status"].map((h) => (
                   <th
                     key={h}
                     className="text-left px-6 py-3 text-xs font-semibold tracking-wide uppercase"
@@ -192,7 +209,7 @@ export default async function AdminDashboardPage() {
             <tbody className="divide-y" style={{ borderColor: "hsl(42 85% 58% / 0.06)" }}>
               {recentBookings.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-10 text-center text-[hsl(43_35%_40%)] text-sm">
+                  <td colSpan={7} className="px-6 py-10 text-center text-[hsl(43_35%_40%)] text-sm">
                     No bookings yet. They will appear here once guests book.
                   </td>
                 </tr>
@@ -204,6 +221,9 @@ export default async function AdminDashboardPage() {
                     key={b.id}
                     className="hover:bg-[hsl(43_35%_80%/0.03)] transition-colors"
                   >
+                    <td className="px-6 py-4 text-[hsl(43_35%_65%)] text-xs font-mono uppercase">
+                      {b.id.split("-")[0]}
+                    </td>
                     <td className="px-6 py-4">
                       <p className="text-white font-medium text-sm">{b.guest_name}</p>
                       <p className="text-[hsl(43_35%_45%)] text-xs">{b.guest_email}</p>
@@ -212,10 +232,10 @@ export default async function AdminDashboardPage() {
                       {(b.rooms as { name: string }[] | null)?.[0]?.name ?? "—"}
                     </td>
                     <td className="px-6 py-4 text-[hsl(43_35%_65%)] text-xs">
-                      {b.check_in}
+                      {formatDisplayDate(b.check_in)}
                     </td>
                     <td className="px-6 py-4 text-[hsl(43_35%_65%)] text-xs">
-                      {b.check_out}
+                      {formatDisplayDate(b.check_out)}
                     </td>
                     <td className="px-6 py-4 text-white text-xs font-medium">
                       LKR {Number(b.total_lkr).toLocaleString("en-LK")}

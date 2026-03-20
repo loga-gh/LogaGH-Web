@@ -2,12 +2,12 @@ import Image from "next/image";
 import { KolamSVG } from "@/components/ui/KolamSVG";
 
 const GALLERY_IMAGES = [
-    { src: "/assets/DSC05363.JPG.jpeg", alt: "Heritage Suite — Carved teak bed under palmyra canopy" },
-    { src: "/assets/DSC05365.JPG.jpeg", alt: "Heritage corridor with hand-painted tile floors" },
-    { src: "/assets/DSC05367.JPG.jpeg", alt: "Sun-drenched private balcony overlooking garden" },
-    { src: "/assets/DSC05368.JPG.jpeg", alt: "Lotus Superior Room — serene white-and-gold interiors" },
-    { src: "/assets/DSC05370.JPG.jpeg", alt: "Heritage courtyard with morning kolam drawing" },
-    { src: "/assets/DSC05371.JPG.jpeg", alt: "Family Suite — vaulted heritage ceiling with brass lamps" },
+    { src: "/assets/bed.png", alt: "Heritage Suite — Carved teak bed under palmyra canopy" },
+    { src: "/assets/hall.png", alt: "Heritage corridor with hand-painted tile floors" },
+    { src: "/assets/Enterance.jpeg", alt: "Sun-drenched private balcony overlooking garden" },
+    { src: "/assets/ceiling.png", alt: "Lotus Superior Room — serene white-and-gold interiors" },
+    { src: "/assets/garden.png", alt: "Heritage courtyard with morning kolam drawing" },
+    { src: "/assets/mini-theater-room.png", alt: "Family Suite — vaulted heritage ceiling with brass lamps" },
 ];
 
 export function GallerySection() {
