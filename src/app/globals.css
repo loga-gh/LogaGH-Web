@@ -3,47 +3,33 @@
 @layer base {
   :root {
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       LOGA GUEST HOUSE — HERITAGE COLOUR SYSTEM
+       LOGA GUEST HOUSE — LUXURY TROPICAL THEME
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-    /* Primary: Deep Jaffna Night */
-    --color-night: 220 25% 8%;
-    --color-night-soft: 220 20% 12%;
+    /* Primary: Deep Ocean Blue */
+    --color-night: 214 52% 24%; /* #1E3A5F */
+    --color-night-soft: 214 45% 30%;
 
-    /* Gold — Divine Prosperity */
-    --color-gold: 42 85% 58%;
-    --color-gold-light: 42 90% 72%;
-    --color-gold-dark: 38 80% 40%;
+    /* Palm Green — Tropical Elegance */
+    --color-green: 163 33% 27%; /* #2F5D50 */
+    --color-green-light: 163 25% 40%;
+    
+    /* Coconut White — Base */
+    --color-parchment: 38 43% 96%; /* #F8F5F0 */
+    --color-parchment-warm: 38 50% 92%;
 
-    /* Crimson — Auspicious Red */
-    --color-crimson: 0 68% 42%;
-    --color-crimson-light: 0 65% 62%;
-
-    /* Parchment — Ivory Purity */
-    --color-parchment: 43 35% 95%;
-    --color-parchment-warm: 40 30% 88%;
-
-    /* Terracotta — Earth & Home */
-    --color-terracotta: 18 58% 52%;
-    --color-terracotta-light: 18 50% 72%;
-
-    /* Teal — Lagoon */
-    --color-teal: 175 60% 32%;
-    --color-teal-light: 175 55% 55%;
-
-    /* Neutrals */
-    --color-stone-100: 35 18% 96%;
-    --color-stone-200: 35 15% 90%;
-    --color-stone-300: 35 12% 80%;
-    --color-stone-500: 35 8% 55%;
-    --color-stone-700: 35 6% 35%;
-    --color-stone-900: 35 4% 15%;
+    /* Sand Beige — Accent & Borders */
+    --color-sand: 38 41% 74%; /* #D6C3A3 */
+    --color-sand-light: 38 40% 85%;
 
     /* Semantic */
     --color-bg: var(--color-parchment);
     --color-fg: var(--color-night);
-    --color-border: var(--color-parchment-warm);
-    --color-accent: var(--color-gold);
+    --color-border: var(--color-sand);
+    --color-accent: var(--color-green);
+    --color-gold: var(--color-sand);
+    --color-gold-dark: 38 35% 60%;
+    --color-gold-light: 38 45% 82%;
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        TYPOGRAPHY SCALE

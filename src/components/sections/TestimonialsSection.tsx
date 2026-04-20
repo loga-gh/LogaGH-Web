@@ -1,86 +1,66 @@
 import { Star, Quote } from "lucide-react";
 import { SAMPLE_TESTIMONIALS } from "@/lib/sample-data";
-import { KolamSVG } from "@/components/ui/KolamSVG";
 
 export function TestimonialsSection() {
     const featured = SAMPLE_TESTIMONIALS.filter((t) => t.is_featured);
 
     return (
         <section
-            className="relative py-24 overflow-hidden"
-            style={{ background: "hsl(220 25% 8%)" }}
+            className="relative py-24 overflow-hidden bg-[#1E3A5F]"
             aria-labelledby="testimonials-heading"
         >
-            {/* Decorative kolam */}
-            <div className="absolute top-0 left-0 w-64 opacity-5 pointer-events-none -translate-x-1/4 -translate-y-1/4">
-                <KolamSVG size={256} color="hsl(42, 85%, 58%)" />
-            </div>
-            <div className="absolute bottom-0 right-0 w-64 opacity-5 pointer-events-none translate-x-1/4 translate-y-1/4">
-                <KolamSVG size={256} color="hsl(42, 85%, 58%)" />
-            </div>
-
             <div className="container-luxury relative z-10">
                 {/* Header */}
-                <div className="text-center mb-14">
-                    <p className="section-eyebrow mb-3" style={{ color: "hsl(18 58% 52%)" }}>
-                        Guest Stories
-                    </p>
-                    <div className="divider-gold max-w-xs mx-auto mb-4" aria-hidden="true">
-                        <span
-                            className="text-lg"
-                            style={{ color: "hsl(42, 85%, 58%)", fontFamily: "var(--font-great-vibes)" }}
-                        >
-                            ✦
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 mb-4">
+                        <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
+                        <span className="text-sm font-semibold tracking-widest uppercase text-[#D6C3A3]">
+                            Guest Stories
                         </span>
+                        <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
                     <h2
                         id="testimonials-heading"
-                        className="text-white text-4xl sm:text-5xl font-bold mb-4"
-                        style={{ fontFamily: "var(--font-playfair)" }}
+                        className="text-[#F8F5F0] text-4xl md:text-5xl font-bold mb-6 font-serif"
                     >
                         Words That Warm
                     </h2>
-                    <p className="text-[hsl(43_35%_95%/0.55)] max-w-xl mx-auto leading-relaxed">
-                        Our greatest honour is hearing how Loga touched your heart. These are their words.
+                    <p className="text-[#F8F5F0]/80 max-w-2xl mx-auto leading-relaxed text-lg">
+                        Our greatest honour is hearing how our peaceful escape touched your heart. These are their stories.
                     </p>
                 </div>
 
                 {/* Testimonial cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {featured.map((testimonial, idx) => (
                         <blockquote
                             key={testimonial.id}
-                            className="relative glass-night rounded-2xl p-6 flex flex-col"
-                            style={{
-                                background: "hsl(220 20% 12%)",
-                                border: "1px solid hsl(42 85% 58% / 0.12)",
-                                animationDelay: `${idx * 0.15}s`,
-                            }}
+                            className="relative bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col backdrop-blur-sm shadow-lg transition-transform duration-300 hover:-translate-y-2"
+                            style={{ animationDelay: `${idx * 0.15}s` }}
                         >
                             {/* Quote icon */}
-                            <div className="mb-4">
+                            <div className="mb-6">
                                 <Quote
-                                    size={28}
-                                    className="text-[hsl(42_85%_58%)]"
+                                    size={32}
+                                    className="text-[#D6C3A3] opacity-40"
                                     fill="currentColor"
-                                    opacity={0.3}
                                     aria-hidden="true"
                                 />
                             </div>
 
                             {/* Stars */}
                             <div
-                                className="flex gap-0.5 mb-4"
+                                className="flex gap-1 mb-6"
                                 aria-label={`${testimonial.rating} out of 5 stars`}
                             >
                                 {Array.from({ length: 5 }, (_, i) => (
                                     <Star
                                         key={i}
-                                        size={14}
+                                        size={16}
                                         className={
                                             i < testimonial.rating
-                                                ? "text-[hsl(42_85%_58%)] fill-current"
-                                                : "text-[hsl(43_35%_95%/0.2)]"
+                                                ? "text-[#D6C3A3] fill-current"
+                                                : "text-white/20"
                                         }
                                         aria-hidden="true"
                                     />
@@ -88,27 +68,22 @@ export function TestimonialsSection() {
                             </div>
 
                             {/* Comment */}
-                            <p className="text-[hsl(43_35%_95%/0.75)] text-sm leading-loose mb-6 flex-1 italic">
+                            <p className="text-[#F8F5F0]/90 text-base leading-relaxed mb-8 flex-1 italic">
                                 &ldquo;{testimonial.comment}&rdquo;
                             </p>
 
                             {/* Guest info */}
-                            <footer className="flex items-center justify-between">
+                            <footer className="flex items-center justify-between border-t border-white/10 pt-6">
                                 <div>
-                                    <cite className="not-italic text-white font-semibold text-sm">
+                                    <cite className="not-italic text-[#F8F5F0] font-semibold text-base">
                                         {testimonial.guest_name}
                                     </cite>
-                                    <p className="text-[hsl(42_85%_58%/0.7)] text-xs mt-0.5">
+                                    <p className="text-[#D6C3A3] text-sm mt-1">
                                         {testimonial.guest_country}
-                                        {testimonial.room_name ? ` · ${testimonial.room_name}` : ""}
                                     </p>
                                 </div>
                                 <div
-                                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
-                                    style={{
-                                        background: "hsl(42 85% 58% / 0.15)",
-                                        color: "hsl(42, 85%, 58%)",
-                                    }}
+                                    className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold bg-[#D6C3A3]/20 text-[#D6C3A3]"
                                     aria-hidden="true"
                                 >
                                     {testimonial.guest_name.charAt(0)}
@@ -116,21 +91,6 @@ export function TestimonialsSection() {
                             </footer>
                         </blockquote>
                     ))}
-                </div>
-
-                {/* Rating summary */}
-                <div className="mt-12 text-center">
-                    <div className="inline-flex items-center gap-3 glass-night rounded-full px-6 py-3"
-                        style={{ background: "hsl(220 20% 12%)", border: "1px solid hsl(42 85% 58% / 0.15)" }}>
-                        <div className="flex gap-0.5" aria-hidden="true">
-                            {Array.from({ length: 5 }, (_, i) => (
-                                <Star key={i} size={16} className="text-[hsl(42_85%_58%)] fill-current" />
-                            ))}
-                        </div>
-                        <p className="text-white font-bold text-lg">5.0</p>
-                        <span className="text-[hsl(43_35%_95%/0.4)] text-sm">·</span>
-                        <p className="text-[hsl(43_35%_95%/0.55)] text-sm">Rated by 200+ guests</p>
-                    </div>
                 </div>
             </div>
         </section>

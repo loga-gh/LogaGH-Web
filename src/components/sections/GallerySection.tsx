@@ -1,65 +1,75 @@
 import Image from "next/image";
-import { KolamSVG } from "@/components/ui/KolamSVG";
 
 const GALLERY_IMAGES = [
-    { src: "/assets/bed.png", alt: "Heritage Suite — Carved teak bed under palmyra canopy" },
-    { src: "/assets/hall.png", alt: "Heritage corridor with hand-painted tile floors" },
-    { src: "/assets/Enterance.jpeg", alt: "Sun-drenched private balcony overlooking garden" },
-    { src: "/assets/ceiling.png", alt: "Lotus Superior Room — serene white-and-gold interiors" },
-    { src: "/assets/garden.png", alt: "Heritage courtyard with morning kolam drawing" },
-    { src: "/assets/mini-theater-room.png", alt: "Family Suite — vaulted heritage ceiling with brass lamps" },
+    { src: "/assets/Enterance2.jpeg", alt: "Loga Guest House Entrance", style: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto min-h-[300px] md:min-h-[600px]" },
+    { src: "/assets/bed2.png", alt: "Comfortable Bedroom", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/front-view.jpeg", alt: "Front View of Property", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/dinning.png", alt: "Dining Area", style: "md:col-span-2 md:row-span-1 aspect-[16/9] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/garden.png", alt: "Lush Green Garden", style: "md:col-span-2 md:row-span-1 aspect-[16/9] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/sideview.jpeg", alt: "Side View of Guest House", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/hall.png", alt: "Elegant Heritage Hall", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/top-view-house.jpeg", alt: "Aerial View of the Property", style: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto min-h-[300px] md:min-h-[600px]" },
 ];
 
 export function GallerySection() {
     return (
         <section
-            className="py-24 relative overflow-hidden"
-            style={{ background: "hsl(43 35% 96%)" }}
+            id="gallery"
+            className="py-32 relative overflow-hidden bg-[#F8F5F0]"
             aria-labelledby="gallery-heading"
         >
-            <div className="container-luxury">
+            <div className="container-luxury max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Header */}
-                <div className="text-center mb-14">
-                    <p className="section-eyebrow mb-3">Visual Journey</p>
-                    <div className="divider-gold max-w-xs mx-auto mb-4" aria-hidden="true">
-                        <KolamSVG size={32} strokeWidth={1} />
+                <div className="text-center mb-20">
+                    <div className="inline-flex items-center gap-4 mb-6">
+                        <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
+                        <span className="text-sm font-semibold tracking-[0.25em] uppercase text-[#D6C3A3]">
+                            Visual Journey
+                        </span>
+                        <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
                     <h2
                         id="gallery-heading"
-                        className="text-4xl sm:text-5xl font-bold mb-4"
-                        style={{ fontFamily: "var(--font-playfair)" }}
+                        className="text-4xl md:text-6xl font-bold mb-6 text-[#1E3A5F] drop-shadow-sm"
+                        style={{ fontFamily: "var(--font-serif)" }}
                     >
                         A Glimpse Inside
                     </h2>
-                    <p className="text-[hsl(35_8%_45%)] max-w-md mx-auto">
-                        Every corner of Loga is a carefully curated composition of heritage and serenity.
+                    <p className="text-lg text-[#1E3A5F]/70 max-w-2xl mx-auto leading-relaxed">
+                        Every corner of Loga is a carefully curated composition of heritage and serenity. 
+                        Immerse yourself in the timeless beauty of our traditional Tamil estate.
                     </p>
                 </div>
 
-                {/* Masonry-style gallery grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {/* Premium Bento Grid Gallery */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-fr">
                     {GALLERY_IMAGES.map((img, i) => (
                         <div
                             key={i}
-                            className={`relative overflow-hidden rounded-xl group cursor-pointer ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" :
-                                    i === 3 ? "col-span-2 md:col-span-1" : ""
-                                }`}
-                            style={{ aspectRatio: i === 0 ? "1" : i === 3 ? "2/1" : "4/3" }}
+                            className={`relative overflow-hidden rounded-xl group cursor-pointer shadow-lg border border-[#D6C3A3]/20 ${img.style}`}
                         >
                             <Image
                                 src={img.src}
                                 alt={img.alt}
                                 fill
-                                sizes={
-                                    i === 0
-                                        ? "(max-width: 768px) 100vw, 66vw"
-                                        : "(max-width: 768px) 50vw, 33vw"
-                                }
-                                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
                             />
-                            {/* Caption overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220_25%_8%/0.7)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                <p className="text-white text-xs font-medium leading-snug">{img.alt}</p>
+                            
+                            {/* Inner Glass border effect on hover */}
+                            <div className="absolute inset-4 border border-white/0 group-hover:border-white/20 transition-colors duration-500 z-10 pointer-events-none rounded-lg" />
+                            
+                            {/* Elegant Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/90 via-[#1E3A5F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            
+                            {/* Caption Text */}
+                            <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                                <span className="text-[#FBBF24] text-xs font-bold tracking-[0.2em] uppercase mb-2">
+                                    Loga Guest House
+                                </span>
+                                <h3 className="text-[#F8F5F0] text-xl md:text-2xl font-serif font-medium drop-shadow-md">
+                                    {img.alt}
+                                </h3>
                             </div>
                         </div>
                     ))}

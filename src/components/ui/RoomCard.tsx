@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Users, Maximize2, Bed, Star } from "lucide-react";
-import { cn, formatPriceLKR, formatPriceUSD, roomCategoryLabel } from "@/lib/utils";
+import { cn, roomCategoryLabel } from "@/lib/utils";
 import type { Room } from "@/lib/types";
 
 interface RoomCardProps {
@@ -13,7 +12,7 @@ interface RoomCardProps {
 export function RoomCard({ room, className, featured = false }: RoomCardProps) {
     return (
         <article
-            className={cn("card-heritage group", className)}
+            className={cn("bg-white border border-[#D6C3A3]/40 rounded-2xl overflow-hidden shadow-md group", className)}
             aria-label={`${room.name} room details`}
         >
             {/* Image */}
@@ -26,103 +25,84 @@ export function RoomCard({ room, className, featured = false }: RoomCardProps) {
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
                 />
                 {/* Dark overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220_25%_8%/0.6)] via-transparent to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/60 via-transparent to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300" />
 
                 {/* Category badge */}
                 <div className="absolute top-3 left-3">
-                    <span className="badge badge-gold">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#F8F5F0]/90 text-[#2F5D50] backdrop-blur-sm shadow-sm">
                         {roomCategoryLabel(room.category)}
                     </span>
-                </div>
-
-                {/* Price tag */}
-                <div className="absolute bottom-3 right-3 glass-night rounded-xl px-3 py-2 text-right">
-                    <p className="text-[hsl(42_85%_58%)] font-bold text-lg leading-none">
-                        {formatPriceLKR(room.price_lkr)}
-                    </p>
-                    <p className="text-[hsl(43_35%_95%/0.6)] text-xs mt-0.5">
-                        ≈ {formatPriceUSD(room.price_usd)} / night
-                    </p>
                 </div>
             </div>
 
             {/* Content */}
-            <div className="p-5">
+            <div className="p-6">
                 {/* Stars */}
-                <div className="flex items-center gap-0.5 mb-2" aria-label="5 star rating">
+                <div className="flex items-center gap-0.5 mb-3" aria-label="5 star rating">
                     {Array.from({ length: 5 }, (_, i) => (
                         <Star
                             key={i}
-                            size={12}
-                            className="star-filled fill-current"
+                            size={14}
+                            className="fill-[#D6C3A3] text-[#D6C3A3]"
                             aria-hidden="true"
                         />
                     ))}
                 </div>
 
                 <h3
-                    className="text-xl font-semibold mb-2 group-hover:text-[hsl(38_80%_40%)] transition-colors"
-                    style={{ fontFamily: "var(--font-playfair)" }}
+                    className="text-2xl font-bold mb-3 group-hover:text-[#2F5D50] transition-colors"
+                    style={{ fontFamily: "var(--font-serif)" }}
                 >
                     {room.name}
                 </h3>
 
-                <p className="text-sm leading-relaxed mb-4"
-                    style={{ color: "hsl(35 8% 45%)" }}>
+                <p className="text-sm leading-relaxed mb-6 text-[#1E3A5F]/70">
                     {room.description.slice(0, 110)}…
                 </p>
 
                 {/* Room specs */}
-                <div className="flex flex-wrap items-center gap-4 mb-5 text-xs"
-                    style={{ color: "hsl(35 8% 50%)" }}>
+                <div className="flex flex-wrap items-center gap-4 mb-6 text-xs text-[#1E3A5F]/80">
                     <span className="flex items-center gap-1.5">
-                        <Maximize2 size={13} aria-hidden="true" />
+                        <Maximize2 size={14} aria-hidden="true" />
                         <span>{room.size_sqft} sq ft</span>
                     </span>
                     <span className="flex items-center gap-1.5">
-                        <Users size={13} aria-hidden="true" />
-                        <span>Up to {room.max_guests} guests</span>
+                        <Users size={14} aria-hidden="true" />
+                        <span>Up to {room.max_guests}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
-                        <Bed size={13} aria-hidden="true" />
+                        <Bed size={14} aria-hidden="true" />
                         <span>{room.beds}</span>
                     </span>
                 </div>
 
                 {/* Top amenities */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                    {room.amenities.slice(0, 4).map((amenity) => (
+                <div className="flex flex-wrap gap-2 mb-8">
+                    {room.amenities.slice(0, 3).map((amenity) => (
                         <span
                             key={amenity}
-                            className="text-xs px-2 py-0.5 rounded-full bg-[hsl(43_35%_95%)] text-[hsl(35_8%_40%)]"
+                            className="text-xs px-2.5 py-1 rounded-full bg-[#F8F5F0] text-[#1E3A5F]/70 border border-[#D6C3A3]/30"
                         >
                             {amenity}
                         </span>
                     ))}
-                    {room.amenities.length > 4 && (
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-[hsl(43_35%_95%)] text-[hsl(35_8%_40%)]">
-                            +{room.amenities.length - 4} more
+                    {room.amenities.length > 3 && (
+                        <span className="text-xs px-2.5 py-1 rounded-full bg-[#F8F5F0] text-[#1E3A5F]/70 border border-[#D6C3A3]/30">
+                            +{room.amenities.length - 3}
                         </span>
                     )}
                 </div>
 
                 {/* CTA */}
                 <div className="flex gap-3">
-                    <Link
-                        href={`/rooms/${room.slug}`}
-                        className="btn btn-ghost text-sm px-4 py-2.5 flex-1 text-center border border-[hsl(35_8%_80%)]"
-                        aria-label={`View details for ${room.name}`}
+                    <a
+                        href={`https://wa.me/94770000000?text=I'm interested in the ${room.name}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn w-full text-center bg-[#1E3A5F] text-[#F8F5F0] hover:bg-[#1E3A5F]/90"
                     >
-                        View Details
-                    </Link>
-                    <Link
-                        href={`/rooms/${room.slug}?book=1`}
-                        className="btn btn-gold text-sm px-4 py-2.5 flex-1 text-center"
-                        id={`book-${room.slug}-btn`}
-                        aria-label={`Book ${room.name}`}
-                    >
-                        Book Room
-                    </Link>
+                        Enquire Availability
+                    </a>
                 </div>
             </div>
         </article>

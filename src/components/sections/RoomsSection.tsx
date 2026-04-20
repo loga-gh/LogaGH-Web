@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { RoomCard } from "@/components/ui/RoomCard";
 import { SAMPLE_ROOMS } from "@/lib/sample-data";
 
@@ -7,53 +6,39 @@ export function RoomsSection() {
 
     return (
         <section
-            className="py-24 overflow-hidden"
-            style={{ background: "hsl(43 35% 96%)" }}
+            id="rooms"
+            className="py-24 overflow-hidden bg-[#F8F5F0]"
             aria-labelledby="rooms-heading"
         >
             <div className="container-luxury">
                 {/* Header */}
-                <div className="text-center mb-14">
-                    <p className="section-eyebrow mb-3">Accommodation</p>
-
-                    <div className="divider-gold max-w-xs mx-auto mb-4" aria-hidden="true">
-                        <span
-                            className="text-lg"
-                            style={{ color: "hsl(42, 85%, 58%)", fontFamily: "var(--font-great-vibes)" }}
-                        >
-                            ✦
+                <div className="text-center mb-16 md:mb-20">
+                    <div className="inline-flex items-center gap-4 mb-6">
+                        <span className="w-12 h-px bg-[#2F5D50]" aria-hidden="true" />
+                        <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#2F5D50]">
+                            Accommodation
                         </span>
+                        <span className="w-12 h-px bg-[#2F5D50]" aria-hidden="true" />
                     </div>
 
                     <h2
                         id="rooms-heading"
-                        className="text-4xl sm:text-5xl font-bold mb-4"
-                        style={{ fontFamily: "var(--font-playfair)" }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#1E3A5F] drop-shadow-sm"
+                        style={{ fontFamily: "var(--font-serif)" }}
                     >
                         Rooms & Suites
                     </h2>
-                    <p className="text-base text-[hsl(35_8%_45%)] max-w-xl mx-auto leading-relaxed">
-                        Each of our rooms tells a story — of Dutch-colonial grandeur, Tamil artisanship,
-                        and the serene rhythm of Jaffna life.
+                    <p className="text-base md:text-lg text-[#1E3A5F]/70 max-w-2xl mx-auto leading-relaxed font-light">
+                        Each of our rooms tells a story — combining traditional craftsmanship
+                        with modern comfort, offering a serene retreat after a day of exploration.
                     </p>
                 </div>
 
                 {/* Room grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {featuredRooms.map((room) => (
                         <RoomCard key={room.id} room={room} />
                     ))}
-                </div>
-
-                {/* View all CTA */}
-                <div className="text-center">
-                    <Link
-                        href="/rooms"
-                        className="btn btn-outline text-[hsl(220_25%_8%)] border-[hsl(35_8%_70%)]"
-                        id="rooms-view-all-btn"
-                    >
-                        View All Rooms & Pricing
-                    </Link>
                 </div>
             </div>
         </section>

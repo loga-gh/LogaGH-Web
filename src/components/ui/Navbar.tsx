@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
     { href: "/", label: "Home" },
-    { href: "/rooms", label: "Rooms" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#gallery", label: "Gallery" },
+    { href: "/#about", label: "About" },
+    { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -29,13 +29,25 @@ export function Navbar() {
         return () => { document.body.style.overflow = ""; };
     }, [isMobileOpen]);
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith("/#")) {
+            e.preventDefault();
+            const targetId = href.substring(2);
+            const elem = document.getElementById(targetId);
+            if (elem) {
+                elem.scrollIntoView({ behavior: "smooth" });
+                setIsMobileOpen(false);
+            }
+        }
+    };
+
     return (
         <>
             <header
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                     isScrolled
-                        ? "bg-[hsl(220_25%_8%/0.95)] backdrop-blur-md shadow-[0_4px_24px_hsl(220_25%_8%/0.3)] py-3"
+                        ? "bg-[#1E3A5F]/95 backdrop-blur-md shadow-md py-3"
                         : "bg-transparent py-5"
                 )}
             >
@@ -46,23 +58,27 @@ export function Navbar() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex flex-col leading-none group"
+                        className="flex flex-col items-center leading-none group relative"
                         aria-label="Loga Guest House — Home"
                     >
                         <span
-                            className="font-['var(--font-great-vibes)'] text-3xl"
-                            style={{
-                                fontFamily: "var(--font-great-vibes)",
-                                color: "hsl(42 85% 58%)",
+                            className="text-5xl sm:text-6xl drop-shadow-md"
+                            style={{ 
+                                fontFamily: "var(--font-script)", 
+                                color: "#FBBF24", // Vibrant gold to match the image
+                                textShadow: "0 2px 4px rgba(0,0,0,0.3)"
                             }}
                         >
                             Loga
                         </span>
                         <span
-                            className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase -mt-1"
-                            style={{ color: "hsl(43 35% 95% / 0.7)" }}
+                            className="text-[0.65rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] -mt-2"
+                            style={{ 
+                                color: "#E5E7EB", // Light gray
+                                textShadow: "0 1px 2px rgba(0,0,0,0.5)"
+                            }}
                         >
-                            Guest House · Jaffna
+                            GUEST HOUSE · JAFFNA
                         </span>
                     </Link>
 
@@ -70,15 +86,16 @@ export function Navbar() {
                     <ul className="hidden md:flex items-center gap-1" role="list">
                         {NAV_LINKS.map((link) => (
                             <li key={link.href}>
-                                <Link
+                                <a
                                     href={link.href}
+                                    onClick={(e) => handleNavClick(e, link.href)}
                                     className={cn(
                                         "px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300",
-                                        "text-[hsl(43_35%_95%/0.85)] hover:text-[hsl(42_85%_58%)] hover:bg-[hsl(42_85%_58%/0.1)]"
+                                        "text-[#F8F5F0]/85 hover:text-[#D6C3A3]"
                                     )}
                                 >
                                     {link.label}
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>
@@ -86,26 +103,18 @@ export function Navbar() {
                     {/* CTA + Mobile toggle */}
                     <div className="flex items-center gap-3">
                         <a
-                            href="tel:+94XXXXXXXXX"
-                            className="hidden sm:flex items-center gap-1.5 text-sm text-[hsl(43_35%_95%/0.7)] hover:text-[hsl(42_85%_58%)] transition-colors"
-                            aria-label="Call us"
+                            href="https://wa.me/94770000000"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn hidden md:inline-flex text-sm px-5 py-2.5 bg-[#2F5D50] text-[#F8F5F0] hover:bg-[#2F5D50]/90 shadow-md"
                         >
-                            <Phone size={14} />
-                            <span className="text-xs tracking-wide">+94 77 XXX XXXX</span>
+                            Contact for Booking
                         </a>
-
-                        <Link
-                            href="/rooms"
-                            className="btn btn-gold hidden md:inline-flex text-sm px-5 py-2.5"
-                            id="nav-book-now-btn"
-                        >
-                            Book Now
-                        </Link>
 
                         {/* Mobile hamburger */}
                         <button
                             type="button"
-                            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-[hsl(43_35%_95%)] hover:bg-[hsl(43_35%_95%/0.1)] transition-colors"
+                            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-[#F8F5F0] hover:bg-[#F8F5F0]/10 transition-colors"
                             onClick={() => setIsMobileOpen((v) => !v)}
                             aria-expanded={isMobileOpen}
                             aria-controls="mobile-menu"
@@ -122,7 +131,7 @@ export function Navbar() {
                 id="mobile-menu"
                 className={cn(
                     "fixed inset-0 z-40 flex flex-col pt-24 px-6 pb-8 transition-all duration-300 md:hidden",
-                    "bg-[hsl(220_25%_8%/0.97)] backdrop-blur-xl",
+                    "bg-[#1E3A5F]/95 backdrop-blur-xl",
                     isMobileOpen
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none"
@@ -141,32 +150,32 @@ export function Navbar() {
                                     : "translate-y-4 opacity-0"
                             )}
                         >
-                            <Link
+                            <a
                                 href={link.href}
-                                onClick={() => setIsMobileOpen(false)}
-                                className="block py-4 text-2xl font-medium text-[hsl(43_35%_95%)] hover:text-[hsl(42_85%_58%)] transition-colors border-b border-[hsl(43_35%_95%/0.08)]"
+                                onClick={(e) => handleNavClick(e, link.href)}
+                                className="block py-4 text-2xl font-medium text-[#F8F5F0] hover:text-[#D6C3A3] transition-colors border-b border-[#F8F5F0]/10"
                             >
                                 {link.label}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>
 
                 <div className="mt-auto">
-                    <Link
-                        href="/rooms"
-                        onClick={() => setIsMobileOpen(false)}
-                        className="btn btn-gold w-full text-center"
-                        id="mobile-book-now-btn"
-                    >
-                        Book Your Stay
-                    </Link>
                     <a
-                        href="tel:+94XXXXXXXXX"
-                        className="mt-3 flex items-center justify-center gap-2 text-[hsl(43_35%_95%/0.6)] text-sm"
+                        href="https://wa.me/94770000000"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn w-full text-center bg-[#2F5D50] text-[#F8F5F0]"
+                    >
+                        Contact for Booking
+                    </a>
+                    <a
+                        href="tel:+94770000000"
+                        className="mt-3 flex items-center justify-center gap-2 text-[#F8F5F0]/60 text-sm"
                     >
                         <Phone size={14} />
-                        +94 77 XXX XXXX
+                        +94 77 000 0000
                     </a>
                 </div>
             </div>

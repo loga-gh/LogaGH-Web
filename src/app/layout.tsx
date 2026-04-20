@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Playfair_Display, Great_Vibes } from "next/font/google";
+import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 // ─── Fonts ────────────────────────────────────────────────
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-outfit",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -14,14 +13,14 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-serif",
   display: "swap",
 });
 
 const greatVibes = Great_Vibes({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-great-vibes",
+  weight: "400",
+  variable: "--font-script",
   display: "swap",
 });
 
@@ -101,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${playfair.variable} ${greatVibes.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${greatVibes.variable}`}
     >
       <head>
         {/* JSON-LD — Hotel Schema */}
@@ -145,7 +144,7 @@ export default function RootLayout({
       </head>
       <body
         style={{
-          fontFamily: "var(--font-outfit), 'Noto Sans Tamil', system-ui, sans-serif",
+          fontFamily: "var(--font-sans), system-ui, sans-serif",
         }}
       >
         {children}

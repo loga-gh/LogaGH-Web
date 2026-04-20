@@ -1,99 +1,86 @@
-import Link from "next/link";
-import { Phone, Mail, ArrowRight } from "lucide-react";
-import { KolamSVG } from "@/components/ui/KolamSVG";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function ContactCTASection() {
     return (
         <section
-            className="relative py-24 overflow-hidden"
-            style={{
-                background: "linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 20% 14%) 100%)",
-            }}
+            id="contact"
+            className="relative py-20 md:py-32 overflow-hidden bg-[#2F5D50]"
             aria-labelledby="contact-cta-heading"
         >
-            {/* Kolam decorations */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
-                    <KolamSVG size={600} color="hsl(42, 85%, 58%)" strokeWidth={1} />
-                </div>
-            </div>
+            <div className="container-luxury relative z-10 grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
+                {/* Contact Content */}
+                <div>
+                    <div className="inline-flex items-center gap-4 mb-6">
+                        <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
+                        <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#D6C3A3]">
+                            Reach Out
+                        </span>
+                    </div>
 
-            {/* Gold top border */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(42_85%_58%/0.5)] to-transparent" />
-
-            <div className="container-luxury relative z-10 text-center">
-                <p className="section-eyebrow mb-4" style={{ color: "hsl(18 58% 52%)" }}>
-                    Reserve Your Stay
-                </p>
-
-                <h2
-                    id="contact-cta-heading"
-                    className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                >
-                    Ready to Experience{" "}
-                    <span
-                        style={{
-                            fontFamily: "var(--font-great-vibes)",
-                            color: "hsl(42, 85%, 58%)",
-                            fontSize: "1.1em",
-                        }}
+                    <h2
+                        id="contact-cta-heading"
+                        className="text-[#F8F5F0] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif leading-tight drop-shadow-sm"
                     >
-                        Jaffna
-                    </span>
-                    ?
-                </h2>
+                        Plan your stay with us directly
+                    </h2>
 
-                <p className="text-[hsl(43_35%_95%/0.6)] max-w-xl mx-auto text-lg leading-relaxed mb-10">
-                    Book direct for the best rates — no agency fees, no hidden charges.
-                    Simply a heartfelt welcome from our family to yours.
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-                    <Link
-                        href="/rooms"
-                        className="btn btn-gold px-8 py-4 text-base group"
-                        id="cta-book-room-btn"
-                    >
-                        Book a Room
-                        <ArrowRight
-                            size={16}
-                            className="transition-transform duration-300 group-hover:translate-x-1"
-                            aria-hidden="true"
-                        />
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="btn btn-outline text-white px-8 py-4 text-base"
-                        style={{ borderColor: "hsl(43 35% 95% / 0.3)" }}
-                        id="cta-contact-btn"
-                    >
-                        Send an Inquiry
-                    </Link>
-                </div>
-
-                {/* Quick contact */}
-                <div className="flex flex-wrap items-center justify-center gap-8">
-                    <a
-                        href="tel:+94XXXXXXXXX"
-                        className="flex items-center gap-2 text-[hsl(43_35%_95%/0.55)] hover:text-[hsl(42_85%_58%)] transition-colors text-sm"
-                    >
-                        <Phone size={15} aria-hidden="true" />
-                        +94 77 XXX XXXX
-                    </a>
-                    <span className="text-[hsl(43_35%_95%/0.2)] text-xl">·</span>
-                    <a
-                        href="mailto:logaguesthouse@gmail.com"
-                        className="flex items-center gap-2 text-[hsl(43_35%_95%/0.55)] hover:text-[hsl(42_85%_58%)] transition-colors text-sm"
-                    >
-                        <Mail size={15} aria-hidden="true" />
-                        logaguesthouse@gmail.com
-                    </a>
-                    <span className="text-[hsl(43_35%_95%/0.2)] text-xl hidden sm:inline">·</span>
-                    <p className="text-[hsl(43_35%_95%/0.55)] text-sm hidden sm:block">
-                        Typically responds within 2 hours
+                    <p className="text-[#F8F5F0]/80 text-base md:text-lg leading-relaxed mb-10 font-light">
+                        We believe in personalized service from the very first hello. Contact us via WhatsApp, phone, or email, and we'll ensure your stay is perfectly tailored to your needs.
                     </p>
+
+                    {/* Quick contact */}
+                    <div className="space-y-6">
+                        <a
+                            href="https://wa.me/94770000000"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#D6C3A3] text-[#1E3A5F] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#D6C3A3]/90 transition-colors shadow-lg"
+                        >
+                            WhatsApp Us
+                        </a>
+
+                        <div className="flex flex-col gap-4 mt-8">
+                            <a
+                                href="tel:+94770000000"
+                                className="flex items-center gap-4 text-[#F8F5F0] hover:text-[#D6C3A3] transition-colors"
+                            >
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                    <Phone size={20} aria-hidden="true" />
+                                </div>
+                                <span className="text-lg">+94 77 000 0000</span>
+                            </a>
+                            <a
+                                href="mailto:logaguesthouse@gmail.com"
+                                className="flex items-center gap-4 text-[#F8F5F0] hover:text-[#D6C3A3] transition-colors"
+                            >
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                    <Mail size={20} aria-hidden="true" />
+                                </div>
+                                <span className="text-lg">logaguesthouse@gmail.com</span>
+                            </a>
+                            <div className="flex items-center gap-4 text-[#F8F5F0]">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                    <MapPin size={20} aria-hidden="true" />
+                                </div>
+                                <span className="text-lg">Loga Guest House, Jaffna, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Map Embed */}
+                <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125745.10985226164!2d79.94747372986422!3d9.661500000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe53fd7be66aa5%3A0xc7a1d805611e9a3b!2sJaffna%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style={{ border: 0 }} 
+                        allowFullScreen={true} 
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Loga Guest House Location"
+                        className="grayscale hover:grayscale-0 transition-all duration-700"
+                    ></iframe>
                 </div>
             </div>
         </section>
