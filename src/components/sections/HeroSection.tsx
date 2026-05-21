@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TypingBookingButton } from "../ui/TypingBookingButton";
 
 export function HeroSection() {
     return (
@@ -48,7 +49,7 @@ export function HeroSection() {
                             textShadow: "0 4px 12px rgba(0,0,0,0.3)"
                         }}
                     >
-                        A Quiet Escape in the Heart of Sri Lanka
+                        Welcome to Loga Guest House in Mallakam
                     </h1>
 
                     {/* Sub-headline */}
@@ -60,25 +61,18 @@ export function HeroSection() {
                             textShadow: "0 2px 8px rgba(0,0,0,0.4)"
                         }}
                     >
-                        Where nature, comfort, and culture come together.
+                        Where nature, comfort and culture come together.
                     </p>
 
                     {/* CTA buttons */}
                     <div
-                        className="flex flex-wrap justify-center gap-4 mb-8 opacity-0 animate-fade-in-up"
+                        className="flex flex-wrap justify-center items-center gap-4 mb-8 opacity-0 animate-fade-in-up"
                         style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
                     >
-                        <a
-                            href="https://wa.me/94770000000"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="btn px-8 py-4 text-base bg-[#D6C3A3] text-[#1E3A5F] hover:bg-[#D6C3A3]/90 shadow-md font-semibold"
-                        >
-                            Contact for Booking
-                        </a>
+                        <TypingBookingButton />
                         <a
                             href="#rooms"
-                            className="btn px-8 py-4 text-base border-2 border-[#F8F5F0]/80 text-[#F8F5F0] hover:bg-[#F8F5F0]/10 hover:border-[#F8F5F0]"
+                            className="btn px-8 py-4 text-base border-2 border-[#F8F5F0]/80 text-[#F8F5F0] hover:bg-[#F8F5F0]/10 hover:border-[#F8F5F0] h-[58px] flex items-center justify-center font-semibold"
                         >
                             Explore Stay
                         </a>

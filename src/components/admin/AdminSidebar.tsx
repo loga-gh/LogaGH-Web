@@ -26,6 +26,7 @@ export function AdminSidebar({ userEmail }: { userEmail: string }) {
   const handleSignOut = async () => {
     const supabase = createBrowserClient();
     await supabase.auth.signOut();
+    document.cookie = "mock_admin_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     router.push("/admin/login");
     router.refresh();
   };

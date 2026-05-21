@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const GALLERY_IMAGES = [
     { src: "/assets/Enterance2.jpeg", alt: "Loga Guest House Entrance", style: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto min-h-[300px] md:min-h-[600px]" },
-    { src: "/assets/bed2.png", alt: "Comfortable Bedroom", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
+    { src: "/assets/bed3.jpeg", alt: "Comfortable Bedroom", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
     { src: "/assets/front-view.jpeg", alt: "Front View of Property", style: "md:col-span-1 md:row-span-1 aspect-[4/3] md:aspect-auto md:min-h-[290px]" },
     { src: "/assets/dinning.png", alt: "Dining Area", style: "md:col-span-2 md:row-span-1 aspect-[16/9] md:aspect-auto md:min-h-[290px]" },
     { src: "/assets/garden.png", alt: "Lush Green Garden", style: "md:col-span-2 md:row-span-1 aspect-[16/9] md:aspect-auto md:min-h-[290px]" },

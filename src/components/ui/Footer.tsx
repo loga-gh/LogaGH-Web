@@ -29,7 +29,7 @@ export function Footer() {
                                     textShadow: "0 1px 2px rgba(0,0,0,0.5)"
                                 }}
                             >
-                                GUEST HOUSE · JAFFNA
+                                GUEST HOUSE · MALLAKAM
                             </span>
                         </Link>
                         <p className="text-sm leading-relaxed mb-6 text-[#F8F5F0]/70">
@@ -89,7 +89,7 @@ export function Footer() {
                             <MapPin size={18} className="mt-0.5 shrink-0 text-[#D6C3A3]" />
                             <address className="not-italic leading-relaxed">
                                 Loga Guest House,<br />
-                                Jaffna, Northern Province,<br />
+                                Courts Road, Mallakam,<br />
                                 Sri Lanka
                             </address>
                         </div>

@@ -78,7 +78,7 @@ export function Navbar() {
                                 textShadow: "0 1px 2px rgba(0,0,0,0.5)"
                             }}
                         >
-                            GUEST HOUSE · JAFFNA
+                            GUEST HOUSE · MALLAKAM
                         </span>
                     </Link>
 

@@ -62,7 +62,7 @@ export function ContactCTASection() {
                                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
                                     <MapPin size={20} aria-hidden="true" />
                                 </div>
-                                <span className="text-lg">Loga Guest House, Jaffna, Sri Lanka</span>
+                                <span className="text-lg">Loga Guest House, Courts Road, Mallakam, Sri Lanka</span>
                             </div>
                         </div>
                     </div>

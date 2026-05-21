@@ -4,8 +4,8 @@ import type { Room, Testimonial } from "@/lib/types";
 export const SAMPLE_ROOMS: Room[] = [
     {
         id: "room-001",
-        name: "Jaffna Heritage Suite",
-        slug: "jaffna-heritage-suite",
+        name: " Heritage Suite",
+        slug: "heritage-suite",
         category: "suite",
         description:
             "Our crown jewel — a sprawling corner suite dressed in carved teak, handwoven palmyra textiles, and original Dutch-colonial tile floors. Wake to the scent of frangipani from the private balcony overlooking our heritage garden.",
@@ -90,10 +90,10 @@ export const SAMPLE_ROOMS: Room[] = [
             "Daily housekeeping",
         ],
         images: [
-            "/assets/bed.png",
+            "/assets/bed3.jpeg",
             "/assets/garden.png",
         ],
-        thumbnail: "/assets/bed.png",
+        thumbnail: "/assets/bed3.jpeg",
         is_active: true,
         created_at: "2024-01-01T00:00:00Z",
         updated_at: "2024-01-01T00:00:00Z",
