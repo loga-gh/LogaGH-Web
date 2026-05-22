@@ -147,12 +147,12 @@ export default async function ConfirmPage({ searchParams }: PageProps) {
                   style={{ background: "hsl(43 35% 95%)" }}
                 >
                   <a
-                    href="tel:+94XXXXXXXXX"
+                    href="tel:+94761798609"
                     className="flex items-center gap-2 text-sm text-[hsl(220_25%_12%)] hover:text-[hsl(42_85%_48%)] transition-colors font-medium"
                     aria-label="Call Loga Guest House"
                   >
                     <Phone size={14} style={{ color: "hsl(42 85% 48%)" }} aria-hidden="true" />
-                    +94 77 XXX XXXX
+                    +94 76 179 8609
                   </a>
                   <a
                     href="mailto:logaguesthouse@gmail.com"

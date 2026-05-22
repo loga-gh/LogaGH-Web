@@ -96,7 +96,7 @@ export function RoomCard({ room, className, featured = false }: RoomCardProps) {
                 {/* CTA */}
                 <div className="flex gap-3">
                     <a
-                        href={`https://wa.me/94770000000?text=I'm interested in the ${room.name}`}
+                        href={`https://wa.me/+94761798609?text=I'm interested in the ${room.name}`}
                         target="_blank"
                         rel="noreferrer"
                         className="btn w-full text-center bg-[#1E3A5F] text-[#F8F5F0] hover:bg-[#1E3A5F]/90"

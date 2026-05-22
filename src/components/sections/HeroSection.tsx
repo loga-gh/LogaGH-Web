@@ -27,6 +27,18 @@ export function HeroSection() {
             {/* Hero content */}
             <div className="relative z-10 container-luxury pb-24 pt-32 flex flex-col items-center text-center">
                 <div className="max-w-4xl flex flex-col items-center">
+                    {/* Logo Image */}
+                    <div 
+                        className="mb-8 opacity-0 animate-fade-in-up flex flex-col items-center"
+                        style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}
+                    >
+                        <img 
+                            src="/logo.png" 
+                            alt="Loga Guest House Logo" 
+                            className="h-28 md:h-36 w-auto object-contain drop-shadow-2xl"
+                        />
+                    </div>
+
                     {/* Eyebrow */}
                     <div
                         className="inline-flex items-center gap-2 mb-6 opacity-0 animate-fade-in-up"

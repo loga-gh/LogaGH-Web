@@ -114,7 +114,7 @@ export default function RootLayout({
               description:
                 "Heritage boutique guest house offering luxury rooms in Jaffna, Sri Lanka.",
               url: process.env.NEXT_PUBLIC_SITE_URL,
-              telephone: "+94-77-XXX-XXXX",
+              telephone: "+94 76 179 8609",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Your Street Address",
@@ -125,8 +125,8 @@ export default function RootLayout({
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 9.6615,
-                longitude: 80.0255,
+                latitude: 9.764222,
+                longitude: 80.026722,
               },
               starRating: {
                 "@type": "Rating",

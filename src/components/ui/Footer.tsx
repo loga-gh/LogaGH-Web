@@ -11,26 +11,33 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
                     {/* Brand column */}
                     <div className="lg:col-span-1">
-                        <Link href="/" aria-label="Loga Guest House Home" className="inline-flex flex-col mb-6 relative group">
-                            <span
-                                className="text-4xl drop-shadow-md leading-none"
-                                style={{ 
-                                    fontFamily: "var(--font-script)", 
-                                    color: "#FBBF24", // Vibrant gold
-                                    textShadow: "0 2px 4px rgba(0,0,0,0.3)"
-                                }}
-                            >
-                                Loga
-                            </span>
-                            <span
-                                className="text-[0.6rem] font-bold uppercase tracking-[0.25em] -mt-1 pl-1"
-                                style={{ 
-                                    color: "#E5E7EB", // Light gray
-                                    textShadow: "0 1px 2px rgba(0,0,0,0.5)"
-                                }}
-                            >
-                                GUEST HOUSE · MALLAKAM
-                            </span>
+                        <Link href="/" aria-label="Loga Guest House Home" className="inline-flex items-center gap-3 mb-6 relative group">
+                            <img 
+                                src="/logo.png" 
+                                alt="Loga Guest House Logo" 
+                                className="h-10 sm:h-12 w-auto object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="flex flex-col leading-none">
+                                <span
+                                    className="text-3xl sm:text-4xl drop-shadow-md"
+                                    style={{ 
+                                        fontFamily: "var(--font-script)", 
+                                        color: "#FBBF24", // Vibrant gold
+                                        textShadow: "0 2px 4px rgba(0,0,0,0.3)"
+                                    }}
+                                >
+                                    Loga
+                                </span>
+                                <span
+                                    className="text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] mt-0.5 pl-0.5"
+                                    style={{ 
+                                        color: "#E5E7EB", // Light gray
+                                        textShadow: "0 1px 2px rgba(0,0,0,0.5)"
+                                    }}
+                                >
+                                    GUEST HOUSE
+                                </span>
+                            </div>
                         </Link>
                         <p className="text-sm leading-relaxed mb-6 text-[#F8F5F0]/70">
                             A serene sanctuary where nature, comfort, and Sri Lankan culture come together.
@@ -87,11 +94,18 @@ export function Footer() {
                         </h3>
                         <div className="flex items-start gap-3 text-sm text-[#F8F5F0]/70">
                             <MapPin size={18} className="mt-0.5 shrink-0 text-[#D6C3A3]" />
-                            <address className="not-italic leading-relaxed">
-                                Loga Guest House,<br />
-                                Courts Road, Mallakam,<br />
-                                Sri Lanka
-                            </address>
+                            <a 
+                                href="https://maps.app.goo.gl/xK6oi4FA1ni6QHvc8"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hover:text-[#D6C3A3] transition-colors"
+                            >
+                                <address className="not-italic leading-relaxed">
+                                    Loga Guest House,<br />
+                                    Courts Road, Mallakam,<br />
+                                    Sri Lanka
+                                </address>
+                            </a>
                         </div>
                     </div>
                 </div>

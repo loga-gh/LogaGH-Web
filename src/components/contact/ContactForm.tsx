@@ -124,7 +124,7 @@ export function ContactForm() {
                         type="tel"
                         autoComplete="tel"
                         className="input-luxury"
-                        placeholder="+94 77 XXX XXXX"
+                        placeholder="+94 76 179 8609"
                         {...register("phone")}
                     />
                 </div>
@@ -216,8 +216,8 @@ export function ContactInfoPanel() {
         {
             icon: Phone,
             label: "Call Us",
-            value: "+94 77 XXX XXXX",
-            href: "tel:+94XXXXXXXXX",
+            value: "+94 76 179 8609",
+            href: "tel:+94761798609",
         },
         {
             icon: Mail,
@@ -228,8 +228,8 @@ export function ContactInfoPanel() {
         {
             icon: MapPin,
             label: "Find Us",
-            value: "Jaffna, Northern Province, Sri Lanka 40000",
-            href: "https://maps.google.com",
+            value: "Loga Guest House, Courts Road, Mallakam",
+            href: "https://maps.app.goo.gl/xK6oi4FA1ni6QHvc8",
         },
         {
             icon: Clock,

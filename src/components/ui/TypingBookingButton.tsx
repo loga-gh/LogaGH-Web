@@ -61,7 +61,7 @@ export function TypingBookingButton() {
 
   return (
     <a
-      href="https://wa.me/94770000000"
+      href="https://wa.me/94761798609"
       target="_blank"
       rel="noreferrer"
       className="group relative btn px-8 py-4 text-base bg-[#D6C3A3] text-[#1E3A5F] hover:bg-[#D6C3A3]/90 shadow-lg font-semibold overflow-hidden min-w-[240px] md:min-w-[300px] text-center transition-all duration-300"

@@ -58,28 +58,35 @@ export function Navbar() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex flex-col items-center leading-none group relative"
+                        className="flex items-center gap-3 group relative"
                         aria-label="Loga Guest House — Home"
                     >
-                        <span
-                            className="text-5xl sm:text-6xl drop-shadow-md"
-                            style={{ 
-                                fontFamily: "var(--font-script)", 
-                                color: "#FBBF24", // Vibrant gold to match the image
-                                textShadow: "0 2px 4px rgba(0,0,0,0.3)"
-                            }}
-                        >
-                            Loga
-                        </span>
-                        <span
-                            className="text-[0.65rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] -mt-2"
-                            style={{ 
-                                color: "#E5E7EB", // Light gray
-                                textShadow: "0 1px 2px rgba(0,0,0,0.5)"
-                            }}
-                        >
-                            GUEST HOUSE · MALLAKAM
-                        </span>
+                        <img 
+                            src="/logo.png" 
+                            alt="Loga Guest House Logo" 
+                            className="h-10 sm:h-12 w-auto object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="flex flex-col leading-none">
+                            <span
+                                className="text-3xl sm:text-4xl drop-shadow-md"
+                                style={{ 
+                                    fontFamily: "var(--font-script)", 
+                                    color: "#FBBF24", // Vibrant gold to match the image
+                                    textShadow: "0 2px 4px rgba(0,0,0,0.3)"
+                                }}
+                            >
+                                Loga
+                            </span>
+                            <span
+                                className="text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] mt-0.5 pl-0.5"
+                                style={{ 
+                                    color: "#E5E7EB", // Light gray
+                                    textShadow: "0 1px 2px rgba(0,0,0,0.5)"
+                                }}
+                            >
+                                GUEST HOUSE
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Nav */}
@@ -103,7 +110,7 @@ export function Navbar() {
                     {/* CTA + Mobile toggle */}
                     <div className="flex items-center gap-3">
                         <a
-                            href="https://wa.me/94770000000"
+                            href="https://wa.me/94761798609"
                             target="_blank"
                             rel="noreferrer"
                             className="btn hidden md:inline-flex text-sm px-5 py-2.5 bg-[#2F5D50] text-[#F8F5F0] hover:bg-[#2F5D50]/90 shadow-md"
@@ -163,7 +170,7 @@ export function Navbar() {
 
                 <div className="mt-auto">
                     <a
-                        href="https://wa.me/94770000000"
+                        href="https://wa.me/94761798609"
                         target="_blank"
                         rel="noreferrer"
                         className="btn w-full text-center bg-[#2F5D50] text-[#F8F5F0]"
@@ -171,11 +178,11 @@ export function Navbar() {
                         Contact for Booking
                     </a>
                     <a
-                        href="tel:+94770000000"
+                        href="tel:+94 76 179 8609"
                         className="mt-3 flex items-center justify-center gap-2 text-[#F8F5F0]/60 text-sm"
                     >
                         <Phone size={14} />
-                        +94 77 000 0000
+                        +94 76 179 8609
                     </a>
                 </div>
             </div>

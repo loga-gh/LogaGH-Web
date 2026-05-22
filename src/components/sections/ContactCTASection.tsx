@@ -31,7 +31,7 @@ export function ContactCTASection() {
                     {/* Quick contact */}
                     <div className="space-y-6">
                         <a
-                            href="https://wa.me/94770000000"
+                            href="https://wa.me/94761798609"
                             target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#D6C3A3] text-[#1E3A5F] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#D6C3A3]/90 transition-colors shadow-lg"
@@ -41,13 +41,13 @@ export function ContactCTASection() {
 
                         <div className="flex flex-col gap-4 mt-8">
                             <a
-                                href="tel:+94770000000"
+                                href="tel:+94761798609"
                                 className="flex items-center gap-4 text-[#F8F5F0] hover:text-[#D6C3A3] transition-colors"
                             >
                                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
                                     <Phone size={20} aria-hidden="true" />
                                 </div>
-                                <span className="text-lg">+94 77 000 0000</span>
+                                <span className="text-lg">+94 76 179 8609</span>
                             </a>
                             <a
                                 href="mailto:logaguesthouse@gmail.com"
@@ -58,12 +58,17 @@ export function ContactCTASection() {
                                 </div>
                                 <span className="text-lg">logaguesthouse@gmail.com</span>
                             </a>
-                            <div className="flex items-center gap-4 text-[#F8F5F0]">
+                            <a 
+                                href="https://maps.app.goo.gl/xK6oi4FA1ni6QHvc8"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-4 text-[#F8F5F0] hover:text-[#D6C3A3] transition-colors"
+                            >
                                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
                                     <MapPin size={20} aria-hidden="true" />
                                 </div>
                                 <span className="text-lg">Loga Guest House, Courts Road, Mallakam, Sri Lanka</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +76,7 @@ export function ContactCTASection() {
                 {/* Map Embed */}
                 <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125745.10985226164!2d79.94747372986422!3d9.661500000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe53fd7be66aa5%3A0xc7a1d805611e9a3b!2sJaffna%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        src="https://maps.google.com/maps?q=9.764222,80.026722&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="100%" 
                         height="100%" 
                         style={{ border: 0 }} 
