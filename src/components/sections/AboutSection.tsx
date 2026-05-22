@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function AboutSection() {
+    const { t } = useLanguage();
+
     return (
         <section
             id="about"
@@ -14,29 +19,29 @@ export function AboutSection() {
                         <div className="inline-flex items-center gap-4 mb-6">
                             <span className="w-12 h-px bg-[#2F5D50]"></span>
                             <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#2F5D50]">
-                                Our Story
+                                {t("about.eyebrow")}
                             </span>
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-serif leading-[1.15] text-[#1E3A5F]">
-                            Experience True Sri Lankan Hospitality
+                            {t("about.title")}
                         </h2>
                         <div className="space-y-6 text-base md:text-lg text-[#1E3A5F]/80 leading-relaxed font-light">
                             <p>
-                                Nestled in a peaceful environment, Loga Guest House offers a sanctuary away from the bustle of daily life. Our space is carefully designed to reflect the warmth, elegance, and vibrant spirit of Sri Lankan culture.
+                                {t("about.p1")}
                             </p>
                             <p>
-                                Every detail, from the tropical gardens to the personalized service, is curated to provide a deeply relaxing and culturally immersive experience. Whether you are savoring authentic local cuisine or simply unwinding in nature, we invite you to feel completely at home.
+                                {t("about.p2")}
                             </p>
                         </div>
                         
                         <div className="mt-12 pt-12 border-t border-[#D6C3A3]/40 grid grid-cols-2 gap-6 md:gap-8">
                             <div>
-                                <h4 className="text-2xl md:text-3xl font-serif text-[#D6C3A3] mb-3">Serenity</h4>
-                                <p className="text-sm md:text-base text-[#1E3A5F]/70 leading-relaxed">Peaceful surroundings nestled in beautiful nature.</p>
+                                <h4 className="text-2xl md:text-3xl font-serif text-[#D6C3A3] mb-3">{t("about.serenity")}</h4>
+                                <p className="text-sm md:text-base text-[#1E3A5F]/70 leading-relaxed">{t("about.serenityDesc")}</p>
                             </div>
                             <div>
-                                <h4 className="text-2xl md:text-3xl font-serif text-[#D6C3A3] mb-3">Culture</h4>
-                                <p className="text-sm md:text-base text-[#1E3A5F]/70 leading-relaxed">Authentic experiences and genuine local warmth.</p>
+                                <h4 className="text-2xl md:text-3xl font-serif text-[#D6C3A3] mb-3">{t("about.culture")}</h4>
+                                <p className="text-sm md:text-base text-[#1E3A5F]/70 leading-relaxed">{t("about.cultureDesc")}</p>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,11 @@
+"use client";
+
 import { RoomCard } from "@/components/ui/RoomCard";
 import { SAMPLE_ROOMS } from "@/lib/sample-data";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function RoomsSection() {
+    const { t } = useLanguage();
     const featuredRooms = SAMPLE_ROOMS.filter((r) => r.is_active).slice(0, 3);
 
     return (
@@ -16,7 +20,7 @@ export function RoomsSection() {
                     <div className="inline-flex items-center gap-4 mb-6">
                         <span className="w-12 h-px bg-[#2F5D50]" aria-hidden="true" />
                         <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#2F5D50]">
-                            Accommodation
+                            {t("rooms.eyebrow")}
                         </span>
                         <span className="w-12 h-px bg-[#2F5D50]" aria-hidden="true" />
                     </div>
@@ -26,11 +30,10 @@ export function RoomsSection() {
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#1E3A5F] drop-shadow-sm"
                         style={{ fontFamily: "var(--font-serif)" }}
                     >
-                        Rooms & Suites
+                        {t("rooms.title")}
                     </h2>
                     <p className="text-base md:text-lg text-[#1E3A5F]/70 max-w-2xl mx-auto leading-relaxed font-light">
-                        Each of our rooms tells a story — combining traditional craftsmanship
-                        with modern comfort, offering a serene retreat after a day of exploration.
+                        {t("rooms.subtitle")}
                     </p>
                 </div>
 

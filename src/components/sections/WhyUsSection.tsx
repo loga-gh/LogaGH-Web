@@ -1,58 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import { Leaf, Shield, Heart, Coffee, Wifi, MapPin } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const FEATURES = [
+const getFeatures = (t: any) => [
     {
         icon: Heart,
-        title: "Tamil Hospitality",
-        description:
-            "Greet each dawn with a freshly drawn kolam at your door — a ritual of welcome that has blessed Tamil thresholds for millennia.",
+        title: t("whyUs.features.tamilHospitality.title"),
+        description: t("whyUs.features.tamilHospitality.desc"),
         color: "hsl(0 68% 42%)",
         bg: "hsl(0 68% 42% / 0.08)",
     },
     {
         icon: Shield,
-        title: "Heritage Preserved",
-        description:
-            "Our 1890s Dutch-colonial property has been painstakingly restored — carved teak panels, terracotta tiles, and palmyra motifs intact.",
+        title: t("whyUs.features.heritagePreserved.title"),
+        description: t("whyUs.features.heritagePreserved.desc"),
         color: "hsl(38 80% 40%)",
         bg: "hsl(42 85% 58% / 0.08)",
     },
     {
         icon: Coffee,
-        title: "Authentic Breakfast",
-        description:
-            "Start your day with string hoppers, coconut sambal, and jaggery tea — a traditional Sri Lankan breakfast prepared from scratch.",
+        title: t("whyUs.features.authenticBreakfast.title"),
+        description: t("whyUs.features.authenticBreakfast.desc"),
         color: "hsl(18 58% 52%)",
         bg: "hsl(18 58% 52% / 0.08)",
     },
     {
         icon: Wifi,
-        title: "Modern Comforts",
-        description:
-            "Heritage aesthetics meet contemporary living — high-speed Wi-Fi, air conditioning, en-suite hot showers, and smart TVs.",
+        title: t("whyUs.features.modernComforts.title"),
+        description: t("whyUs.features.modernComforts.desc"),
         color: "hsl(175 60% 32%)",
         bg: "hsl(175 60% 32% / 0.08)",
     },
     {
         icon: MapPin,
-        title: "Prime Location",
-        description:
-            "Walk minutes to Nallur Kovil, the Dutch Fort, and Jaffna's legendary market. We are your gateway to the entire peninsula.",
+        title: t("whyUs.features.primeLocation.title"),
+        description: t("whyUs.features.primeLocation.desc"),
         color: "hsl(220 25% 35%)",
         bg: "hsl(220 25% 35% / 0.08)",
     },
     {
         icon: Leaf,
-        title: "Sustainable Hosting",
-        description:
-            "Solar water heating, rainwater harvesting, and an organic herb garden — luxury that honours the land it stands on.",
+        title: t("whyUs.features.sustainableHosting.title"),
+        description: t("whyUs.features.sustainableHosting.desc"),
         color: "hsl(140 55% 30%)",
         bg: "hsl(140 55% 30% / 0.08)",
     },
 ];
 
 export function WhyUsSection() {
+    const { t } = useLanguage();
+    const features = getFeatures(t);
+
     return (
         <section
             className="py-24"
@@ -100,15 +100,15 @@ export function WhyUsSection() {
                             }}
                         >
                             <p className="text-4xl font-bold text-white leading-none">15+</p>
-                            <p className="text-white/80 text-xs mt-1 font-medium tracking-wide uppercase">
-                                Years of<br />Heritage Hosting
+                            <p className="text-white/80 text-xs mt-1 font-medium tracking-wide uppercase whitespace-pre-line">
+                                {t("whyUs.yearsLabel")}
                             </p>
                         </div>
                     </div>
 
                     {/* Right: content */}
                     <div>
-                        <p className="section-eyebrow mb-3">Why Loga</p>
+                        <p className="section-eyebrow mb-3">{t("whyUs.eyebrow")}</p>
                         <div className="divider-gold max-w-[10rem] mb-4" aria-hidden="true">
                             <span
                                 style={{ color: "hsl(42, 85%, 58%)", fontFamily: "var(--font-great-vibes)" }}
@@ -122,20 +122,17 @@ export function WhyUsSection() {
                             className="text-4xl sm:text-5xl font-bold mb-6"
                             style={{ fontFamily: "var(--font-playfair)" }}
                         >
-                            A Stay Unlike<br />
-                            <span className="text-gradient-gold">Any Other</span>
+                            {t("whyUs.title1")}<br />
+                            <span className="text-gradient-gold">{t("whyUs.title2")}</span>
                         </h2>
 
                         <p className="text-[hsl(35_8%_45%)] leading-relaxed mb-10 text-base">
-                            Loga Guest House is not merely a place to sleep — it is an immersion in
-                            living Tamil heritage. Every detail, from the scent of burning camphor
-                            at dawn to the carved archways that frame each room, speaks of a culture
-                            that takes great pride in welcoming guests.
+                            {t("whyUs.subtitle")}
                         </p>
 
                         {/* Feature grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            {FEATURES.map((feature) => (
+                            {features.map((feature) => (
                                 <div
                                     key={feature.title}
                                     className="flex gap-3 p-4 rounded-xl transition-all duration-300 hover:shadow-sm"

@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const NEARBY_SIGHTS = [
+const getNearbySights = (t: any) => [
     {
-        name: "Nallur Kandaswamy Temple",
-        description: "Discover the spiritual heart of Jaffna at this magnificent Hindu temple, where golden gopurams pierce the sky and centuries of devotion create an atmosphere of profound serenity.",
+        name: t("nearby.places.nallur.name"),
+        description: t("nearby.places.nallur.desc"),
         images: [
             "https://www.worldhindutemples.com/temples/srilanka/nallurkandaswamytemple/3.jpg",
             "https://thumbs.dreamstime.com/b/beautiful-nallur-kandaswamy-kovil-temple-jaffna-sri-lanka-jaffna-sri-lanka-th-january-beautiful-nallur-kandaswamy-kovil-242673928.jpg",
@@ -18,8 +19,8 @@ const NEARBY_SIGHTS = [
         url: "https://www.google.com/maps/search/?api=1&query=Nallur+Kandaswamy+Temple,+Temple+Rd,+Nallur,+Jaffna,+Sri+Lanka"
     },
     {
-        name: "Jaffna Fort",
-        description: "Step back into colonial history amid the weathered ramparts of this star-shaped Dutch fortress. Watch the sunset paint the ocean golden from these ancient battlements.",
+        name: t("nearby.places.fort.name"),
+        description: t("nearby.places.fort.desc"),
         images: [
             "https://tse4.mm.bing.net/th/id/OIP.KU1MmKIZvN8Chl2sICspLgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
             "https://1.bp.blogspot.com/-oh9K2AnxoKA/X6eTUZvyX7I/AAAAAAAAE8E/rTSRgYsRqlUsrT-Lj48UTPEKy9du4p52gCPcBGAYYCw/s1011/Jaffna%2BFort%2B-%2BLankapradeepa.JPG",
@@ -30,8 +31,8 @@ const NEARBY_SIGHTS = [
         url: "https://www.google.com/maps/search/?api=1&query=Jaffna+Fort,+Jaffna,+Sri+Lanka"
     },
     {
-        name: "Casuarina Beach",
-        description: "Unwind on Jaffna's pristine white sands fringed by swaying casuarina trees, where turquoise waters invite gentle swims in paradise-like tranquility.",
+        name: t("nearby.places.casuarina.name"),
+        description: t("nearby.places.casuarina.desc"),
         images: [
             "https://images.squarespace-cdn.com/content/v1/5b31dee870e80290d24d2229/1531099505150-N2536R1MW48VT7ZUEW1H/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/cas+cliffs.jpg",
             "https://i.pinimg.com/736x/0b/f7/85/0bf785375413682a92b95733eb163dd8.jpg",
@@ -42,8 +43,8 @@ const NEARBY_SIGHTS = [
         url: "https://www.google.com/maps/search/?api=1&query=Casuarina+Beach,+Karainagar,+Jaffna,+Sri+Lanka"
     },
     {
-        name: "Keerimalai Springs",
-        description: "Immerse in the mystical freshwater springs cascading beside the ocean, where mineral-rich waters promise healing and renewal.",
+        name: t("nearby.places.keerimalai.name"),
+        description: t("nearby.places.keerimalai.desc"),
         images: [
             "https://tse3.mm.bing.net/th/id/OIP.rqCex_HNMkUOY7BTf4XxuAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
             "https://sunwayholidays.lk/storage/activity/sunway-9019.jpg",
@@ -54,8 +55,8 @@ const NEARBY_SIGHTS = [
         url: "https://www.google.com/maps/search/?api=1&query=Keerimalai+Springs,+Keerimalai,+Jaffna,+Sri+Lanka"
     },
     {
-        name: "Nagapooshani Amman Temple",
-        description: "Reach this sacred island shrine by boat, where colorful Hindu architecture rises amid serene lagoon waters. Feel the divine energy at one of 64 Shakti Peethas.",
+        name: t("nearby.places.nagapooshani.name"),
+        description: t("nearby.places.nagapooshani.desc"),
         images: [
             "https://thrillingtravel.in/wp-content/uploads/2021/12/Nagapooshani-amman-temple-jaffna-768x512.jpg",
             "https://c8.alamy.com/comp/D5FHHR/nagapooshani-amman-kovil-nainativu-sri-lanka-D5FHHR.jpg",
@@ -66,8 +67,8 @@ const NEARBY_SIGHTS = [
         url: "https://www.google.com/maps/search/?api=1&query=Nagapooshani+Amman+Temple,+Nainativu,+Jaffna,+Sri+Lanka"
     },
     {
-        name: "Nagadeepa Rajamaha Viharaya",
-        description: "Sail to this ancient Buddhist stupa on Nainativu Island, believed visited by Lord Buddha himself. Serene amid palm groves, it offers peaceful reflection.",
+        name: t("nearby.places.nagadeepa.name"),
+        description: t("nearby.places.nagadeepa.desc"),
         images: [
             "https://media.gettyimages.com/id/532561771/photo/nagadeepa-rajamaha-viharaya.jpg?s=1024x1024&w=gi&k=20&c=RlP7CK9j1LPS3rg7TWQrBry8-ysS_j2Qb_aqKZV3p04=",
             "https://www.360view.lk/wp-content/uploads/2022/09/Nagadeepa_Purana_Vihara_Photos_By_360viewlk-3-of-41-1024x1536.jpg",
@@ -132,6 +133,9 @@ function ImageHoverSlider({ images, alt }: { images: string[]; alt: string }) {
 }
 
 export function NearbySection() {
+    const { t } = useLanguage();
+    const nearbySights = getNearbySights(t);
+
     return (
         <section
             id="nearby"
@@ -143,7 +147,7 @@ export function NearbySection() {
                     <div className="inline-flex items-center gap-2 mb-4">
                         <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
                         <span className="text-sm font-semibold tracking-widest uppercase text-[#D6C3A3]">
-                            Explore
+                            {t("nearby.eyebrow")}
                         </span>
                         <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
@@ -151,15 +155,15 @@ export function NearbySection() {
                         id="nearby-heading"
                         className="text-4xl md:text-5xl font-bold font-serif mb-6 text-[#FBBF24] drop-shadow-sm"
                     >
-                        Nearby Sights
+                        {t("nearby.title")}
                     </h2>
                     <p className="text-lg text-[#F8F5F0]/80 max-w-2xl mx-auto">
-                        Jaffna is a land of untold stories, rich history, and vibrant culture. Discover the iconic landmarks just a short journey from Loga Guest House.
+                        {t("nearby.subtitle")}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-                    {NEARBY_SIGHTS.map((sight) => (
+                    {nearbySights.map((sight) => (
                         <div 
                             key={sight.name} 
                             className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 flex flex-col relative"
@@ -184,7 +188,7 @@ export function NearbySection() {
                                     rel="noreferrer"
                                     className="inline-flex items-center text-sm font-semibold tracking-wide uppercase text-[#D6C3A3] hover:text-[#FBBF24] transition-colors mt-auto"
                                 >
-                                    Get Directions <span className="ml-2">→</span>
+                                    {t("nearby.getDirections")} <span className="ml-2">→</span>
                                 </a>
                             </div>
                         </div>

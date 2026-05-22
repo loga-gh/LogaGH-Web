@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const GALLERY_IMAGES = [
     { src: "/assets/Enterance2.jpeg", alt: "Loga Guest House Entrance", style: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto min-h-[300px] md:min-h-[600px]" },
@@ -12,6 +15,8 @@ const GALLERY_IMAGES = [
 ];
 
 export function GallerySection() {
+    const { t } = useLanguage();
+
     return (
         <section
             id="gallery"
@@ -24,7 +29,7 @@ export function GallerySection() {
                     <div className="inline-flex items-center gap-4 mb-6">
                         <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                         <span className="text-sm font-semibold tracking-[0.25em] uppercase text-[#D6C3A3]">
-                            Visual Journey
+                            {t("gallery.eyebrow")}
                         </span>
                         <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
@@ -33,11 +38,10 @@ export function GallerySection() {
                         className="text-4xl md:text-6xl font-bold mb-6 text-[#1E3A5F] drop-shadow-sm"
                         style={{ fontFamily: "var(--font-serif)" }}
                     >
-                        A Glimpse Inside
+                        {t("gallery.title")}
                     </h2>
                     <p className="text-lg text-[#1E3A5F]/70 max-w-2xl mx-auto leading-relaxed">
-                        Every corner of Loga is a carefully curated composition of heritage and serenity. 
-                        Immerse yourself in the timeless beauty of our traditional Tamil estate.
+                        {t("gallery.subtitle")}
                     </p>
                 </div>
 

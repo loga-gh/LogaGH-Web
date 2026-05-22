@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { TypingBookingButton } from "../ui/TypingBookingButton";
 
 export function HeroSection() {
+    const { t } = useLanguage();
+
     return (
         <section
             className="relative min-h-dvh flex flex-col justify-end overflow-hidden"
@@ -44,36 +49,42 @@ export function HeroSection() {
                         className="inline-flex items-center gap-2 mb-6 opacity-0 animate-fade-in-up"
                         style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
                     >
-                        <span className="w-12 h-px bg-[#D6C3A3]" aria-hidden="true" />
-                        <span className="text-sm font-semibold tracking-widest uppercase text-[#D6C3A3]">
-                            Welcome to Sri Lanka
-                        </span>
-                        <span className="w-12 h-px bg-[#D6C3A3]" aria-hidden="true" />
+                        <p className="inline-flex items-center gap-3 text-[#D6C3A3] text-sm md:text-base tracking-[0.25em] uppercase font-bold drop-shadow-md">
+                            <span className="w-8 md:w-12 h-px bg-[#D6C3A3]"></span>
+                            {t("hero.eyebrow")}
+                            <span className="w-8 md:w-12 h-px bg-[#D6C3A3]"></span>
+                        </p>
                     </div>
 
                     {/* Headline */}
                     <h1
-                        className="text-5xl md:text-6xl lg:text-8xl font-bold text-[#F8F5F0] leading-[1.05] mb-6 md:mb-8 opacity-0 animate-fade-in-up"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-[#F8F5F0] leading-[1.1] mb-6 md:mb-8 opacity-0 animate-fade-in-up drop-shadow-lg"
                         style={{
-                            fontFamily: "var(--font-serif)",
                             animationDelay: "0.25s",
-                            animationFillMode: "forwards",
-                            textShadow: "0 4px 12px rgba(0,0,0,0.3)"
+                            animationFillMode: "forwards"
                         }}
                     >
-                        Welcome to Loga Guest House in Mallakam
+                        {t("hero.title").split("Loga Guest House").map((part: string, i: number, arr: any[]) => (
+                            <span key={i}>
+                                {part}
+                                {i < arr.length - 1 && (
+                                    <span className="text-[#D6C3A3] italic block mt-2 sm:mt-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ fontFamily: "var(--font-script)" }}>
+                                        Loga Guest House
+                                    </span>
+                                )}
+                            </span>
+                        ))}
                     </h1>
 
                     {/* Sub-headline */}
                     <p
-                        className="text-base md:text-xl lg:text-2xl text-[#F8F5F0]/90 max-w-2xl mb-10 md:mb-12 leading-relaxed opacity-0 animate-fade-in-up font-light tracking-wide"
+                        className="text-lg md:text-xl text-[#F8F5F0]/90 font-light max-w-2xl mb-10 md:mb-12 leading-relaxed opacity-0 animate-fade-in-up drop-shadow"
                         style={{ 
                             animationDelay: "0.4s", 
-                            animationFillMode: "forwards",
-                            textShadow: "0 2px 8px rgba(0,0,0,0.4)"
+                            animationFillMode: "forwards"
                         }}
                     >
-                        Where nature, comfort and culture come together.
+                        {t("hero.subtitle")}
                     </p>
 
                     {/* CTA buttons */}
@@ -86,7 +97,7 @@ export function HeroSection() {
                             href="#rooms"
                             className="btn px-8 py-4 text-base border-2 border-[#F8F5F0]/80 text-[#F8F5F0] hover:bg-[#F8F5F0]/10 hover:border-[#F8F5F0] h-[58px] flex items-center justify-center font-semibold"
                         >
-                            Explore Stay
+                            <span className="relative z-10">{t("hero.explore")}</span>
                         </a>
                     </div>
                 </div>

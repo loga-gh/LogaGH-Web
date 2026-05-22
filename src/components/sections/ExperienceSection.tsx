@@ -1,26 +1,31 @@
+"use client";
+
 import { Coffee, Trees, Library, Flower2 } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function ExperienceSection() {
+    const { t } = useLanguage();
+    
     const experiences = [
         {
             icon: <Coffee size={32} className="text-[#D6C3A3]" />,
-            title: "Local Cuisine",
-            description: "Savor authentic Sri Lankan flavors, from rich curries to freshly brewed Ceylon tea, prepared with locally sourced ingredients."
+            title: t("experience.items.cuisine.title"),
+            description: t("experience.items.cuisine.desc")
         },
         {
             icon: <Trees size={32} className="text-[#D6C3A3]" />,
-            title: "Nature & Beaches",
-            description: "Explore serene landscapes and nearby pristine beaches. Let the tropical breeze and lush greenery rejuvenate your soul."
+            title: t("experience.items.nature.title"),
+            description: t("experience.items.nature.desc")
         },
         {
             icon: <Library size={32} className="text-[#D6C3A3]" />,
-            title: "Cultural Heritage",
-            description: "Immerse yourself in the island's rich history. Visit ancient temples, local markets, and experience vibrant traditions."
+            title: t("experience.items.heritage.title"),
+            description: t("experience.items.heritage.desc")
         },
         {
             icon: <Flower2 size={32} className="text-[#D6C3A3]" />,
-            title: "Ayurveda & Relaxation",
-            description: "Find balance and tranquility through traditional Ayurvedic wellness practices, designed to restore mind, body, and spirit."
+            title: t("experience.items.ayurveda.title"),
+            description: t("experience.items.ayurveda.desc")
         }
     ];
 
@@ -35,15 +40,15 @@ export function ExperienceSection() {
                     <div className="inline-flex items-center gap-4 mb-6">
                         <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                         <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#D6C3A3]">
-                            Discover
+                            {t("experience.eyebrow")}
                         </span>
                         <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-6 text-[#F8F5F0] drop-shadow-sm">
-                        The Sri Lankan Experience
+                        {t("experience.title")}
                     </h2>
                     <p className="text-base md:text-lg text-[#F8F5F0]/80 max-w-2xl mx-auto font-light leading-relaxed">
-                        Your stay goes beyond a beautiful room. Engage your senses and immerse yourself in everything our beautiful island has to offer.
+                        {t("experience.subtitle")}
                     </p>
                 </div>
 

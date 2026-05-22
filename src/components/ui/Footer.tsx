@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Footer() {
+    const { t } = useLanguage();
+
     return (
         <footer
             className="relative overflow-hidden pt-16 pb-8 bg-[#1E3A5F] border-t border-[#D6C3A3]/20"
@@ -40,7 +45,7 @@ export function Footer() {
                             </div>
                         </Link>
                         <p className="text-sm leading-relaxed mb-6 text-[#F8F5F0]/70">
-                            A serene sanctuary where nature, comfort, and Sri Lankan culture come together.
+                            {t("footer.description")}
                         </p>
 
                         {/* Social Links */}
@@ -67,13 +72,13 @@ export function Footer() {
                     {/* Navigation */}
                     <div>
                         <h3 className="text-sm font-bold tracking-widest uppercase mb-6 text-[#D6C3A3]">
-                            Explore
+                            {t("footer.explore")}
                         </h3>
                         <ul className="space-y-4" role="list">
                             {[
-                                { href: "/#experience", label: "Experience" },
-                                { href: "/#gallery", label: "Gallery" },
-                                { href: "/#contact", label: "Contact Us" },
+                                { href: "/#experience", label: t("footer.experience") },
+                                { href: "/#gallery", label: t("footer.gallery") },
+                                { href: "/#contact", label: t("footer.contactUs") },
                             ].map((link) => (
                                 <li key={link.href}>
                                     <Link
@@ -90,7 +95,7 @@ export function Footer() {
                     {/* Location */}
                     <div>
                         <h3 className="text-sm font-bold tracking-widest uppercase mb-6 text-[#D6C3A3]">
-                            Location
+                            {t("footer.location")}
                         </h3>
                         <div className="flex items-start gap-3 text-sm text-[#F8F5F0]/70">
                             <MapPin size={18} className="mt-0.5 shrink-0 text-[#D6C3A3]" />
@@ -114,7 +119,7 @@ export function Footer() {
                 <div
                     className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10 text-xs text-[#F8F5F0]/50"
                 >
-                    <p>© {new Date().getFullYear()} Loga Guest House. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Loga Guest House. {t("footer.rights")}</p>
                 </div>
             </div>
         </footer>

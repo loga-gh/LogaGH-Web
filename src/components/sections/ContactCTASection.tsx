@@ -1,6 +1,11 @@
+"use client";
+
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function ContactCTASection() {
+    const { t } = useLanguage();
+
     return (
         <section
             id="contact"
@@ -13,7 +18,7 @@ export function ContactCTASection() {
                     <div className="inline-flex items-center gap-4 mb-6">
                         <span className="w-12 h-[1px] bg-[#D6C3A3]" aria-hidden="true" />
                         <span className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[#D6C3A3]">
-                            Reach Out
+                            {t("contactCta.eyebrow")}
                         </span>
                     </div>
 
@@ -21,11 +26,11 @@ export function ContactCTASection() {
                         id="contact-cta-heading"
                         className="text-[#F8F5F0] text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif leading-tight drop-shadow-sm"
                     >
-                        Plan your stay with us directly
+                        {t("contactCta.title")}
                     </h2>
 
                     <p className="text-[#F8F5F0]/80 text-base md:text-lg leading-relaxed mb-10 font-light">
-                        We believe in personalized service from the very first hello. Contact us via WhatsApp, phone, or email, and we'll ensure your stay is perfectly tailored to your needs.
+                        {t("contactCta.subtitle")}
                     </p>
 
                     {/* Quick contact */}
@@ -36,7 +41,7 @@ export function ContactCTASection() {
                             rel="noreferrer"
                             className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#D6C3A3] text-[#1E3A5F] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#D6C3A3]/90 transition-colors shadow-lg"
                         >
-                            WhatsApp Us
+                            {t("contactCta.whatsapp")}
                         </a>
 
                         <div className="flex flex-col gap-4 mt-8">

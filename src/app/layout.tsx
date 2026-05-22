@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import "./globals.css";
 
 // ─── Fonts ────────────────────────────────────────────────
@@ -143,11 +144,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        style={{
-          fontFamily: "var(--font-sans), system-ui, sans-serif",
-        }}
+        className="font-sans antialiased bg-[#F8F5F0] text-[#1E3A5F] selection:bg-[#D6C3A3] selection:text-[#1E3A5F]"
       >
-        {children}
+        <LanguageProvider>
+            {children}
+        </LanguageProvider>
       </body>
     </html>
   );

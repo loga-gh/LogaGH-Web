@@ -1,7 +1,11 @@
+"use client";
+
 import { Star, Quote } from "lucide-react";
 import { SAMPLE_TESTIMONIALS } from "@/lib/sample-data";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function TestimonialsSection() {
+    const { t } = useLanguage();
     const featured = SAMPLE_TESTIMONIALS.filter((t) => t.is_featured);
 
     return (
@@ -15,7 +19,7 @@ export function TestimonialsSection() {
                     <div className="inline-flex items-center gap-2 mb-4">
                         <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
                         <span className="text-sm font-semibold tracking-widest uppercase text-[#D6C3A3]">
-                            Guest Stories
+                            {t("testimonials.eyebrow")}
                         </span>
                         <span className="w-8 h-px bg-[#D6C3A3]" aria-hidden="true" />
                     </div>
@@ -23,10 +27,10 @@ export function TestimonialsSection() {
                         id="testimonials-heading"
                         className="text-[#F8F5F0] text-4xl md:text-5xl font-bold mb-6 font-serif"
                     >
-                        Words That Warm
+                        {t("testimonials.title")}
                     </h2>
                     <p className="text-[#F8F5F0]/80 max-w-2xl mx-auto leading-relaxed text-lg">
-                        Our greatest honour is hearing how our peaceful escape touched your heart. These are their stories.
+                        {t("testimonials.subtitle")}
                     </p>
                 </div>
 

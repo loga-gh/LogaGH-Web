@@ -4,18 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-const NAV_LINKS = [
-    { href: "/", label: "Home" },
-    { href: "/#experience", label: "Experience" },
-    { href: "/#gallery", label: "Gallery" },
-    { href: "/#about", label: "About" },
-    { href: "/#contact", label: "Contact" },
+const getNavLinks = (t: any) => [
+    { href: "/", label: t("nav.home") },
+    { href: "/#experience", label: t("nav.experience") },
+    { href: "/#gallery", label: t("nav.gallery") },
+    { href: "/#about", label: t("nav.about") },
+    { href: "/#contact", label: t("nav.contact") },
 ];
 
 export function Navbar() {
+    const { t } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const navLinks = getNavLinks(t);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -91,7 +95,7 @@ export function Navbar() {
 
                     {/* Desktop Nav */}
                     <ul className="hidden md:flex items-center gap-1" role="list">
-                        {NAV_LINKS.map((link) => (
+                        {navLinks.map((link) => (
                             <li key={link.href}>
                                 <a
                                     href={link.href}
@@ -109,13 +113,14 @@ export function Navbar() {
 
                     {/* CTA + Mobile toggle */}
                     <div className="flex items-center gap-3">
+                        <LanguageSwitcher />
                         <a
                             href="https://wa.me/94761798609"
                             target="_blank"
                             rel="noreferrer"
                             className="btn hidden md:inline-flex text-sm px-5 py-2.5 bg-[#2F5D50] text-[#F8F5F0] hover:bg-[#2F5D50]/90 shadow-md"
                         >
-                            Contact for Booking
+                            {t("nav.bookNow")}
                         </a>
 
                         {/* Mobile hamburger */}
@@ -146,7 +151,7 @@ export function Navbar() {
                 aria-hidden={!isMobileOpen}
             >
                 <ul className="flex flex-col gap-2" role="list">
-                    {NAV_LINKS.map((link, i) => (
+                    {navLinks.map((link, i) => (
                         <li
                             key={link.href}
                             style={{ transitionDelay: isMobileOpen ? `${i * 60}ms` : "0ms" }}
@@ -175,7 +180,7 @@ export function Navbar() {
                         rel="noreferrer"
                         className="btn w-full text-center bg-[#2F5D50] text-[#F8F5F0]"
                     >
-                        Contact for Booking
+                        {t("nav.bookNow")}
                     </a>
                     <a
                         href="tel:+94 76 179 8609"
