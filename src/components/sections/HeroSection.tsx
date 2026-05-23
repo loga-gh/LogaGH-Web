@@ -16,13 +16,13 @@ export function HeroSection() {
             {/* Background image — main photo */}
             <div className="absolute inset-0">
                 <Image
-                    src="/assets/top-front-view.jpeg"
+                    src="/assets/landingpage.jpeg"
                     alt="Loga Guest House exterior — A quiet escape in Sri Lanka"
                     fill
                     priority
                     sizes="100vw"
                     className="object-cover"
-                    quality={90}
+                    quality={95}
                 />
                 {/* Multi-layer gradient overlay for readability */}
                 <div className="absolute inset-0 bg-[#1E3A5F]/40" />
