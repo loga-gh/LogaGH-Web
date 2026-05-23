@@ -72,6 +72,18 @@ export const metadata: Metadata = {
       "Boutique heritage luxury in the heart of Jaffna. Authentic Tamil hospitality, immaculate rooms, unforgettable stays.",
     images: ["/og-image.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon-16.png",  sizes: "16x16",   type: "image/png" },
+      { url: "/favicon-32.png",  sizes: "32x32",   type: "image/png" },
+      { url: "/icon-192.png",    sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png",    sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon-32.png",
+  },
   robots: {
     index: true,
     follow: true,
