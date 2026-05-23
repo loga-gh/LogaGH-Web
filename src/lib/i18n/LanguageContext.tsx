@@ -3,17 +3,17 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import en from "./translations/en";
 import ta from "./translations/ta";
-import ml from "./translations/ml";
+import si from "./translations/si";
 import hi from "./translations/hi";
 
-type Language = "en" | "ta" | "ml" | "hi";
+type Language = "en" | "ta" | "si" | "hi";
 
 type TranslationDictionary = typeof en;
 
 const translations: Record<Language, TranslationDictionary> = {
     en,
     ta,
-    ml,
+    si,
     hi,
 };
 

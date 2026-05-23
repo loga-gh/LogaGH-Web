@@ -5,7 +5,8 @@ import { useEffect, useState, useCallback } from "react";
 const PHRASES = [
   { text: "Contact for Booking", lang: "en" },
   { text: "முன்பதிவுக்கு தொடர்புகொள்ளுங்கள்", lang: "ta" },
-  { text: "ബുക്കിംഗിനായി ബന്ധപ്പെടുക", lang: "ml" },
+  { text: "වෙන්කරවා ගැනීම සඳහා අමතන්න", lang: "si" },
+  { text: "बुकिंग के लिए संपर्क करें", lang: "hi" },
 ];
 
 const TYPING_SPEED = 55;    // ms per character typing

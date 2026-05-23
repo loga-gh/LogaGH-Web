@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const languages = [
     { code: "en", label: "English",  native: "English",  flag: "🇬🇧" },
     { code: "ta", label: "Tamil",    native: "தமிழ்",    flag: "🇱🇰" },
-    { code: "ml", label: "Malayalam",native: "മലയാളം",   flag: "🇮🇳" },
+    { code: "si", label: "Sinhala",  native: "සිංහල",     flag: "🇱🇰" },
     { code: "hi", label: "Hindi",    native: "हिंदी",    flag: "🇮🇳" },
 ] as const;
 
